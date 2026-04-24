@@ -1,0 +1,15 @@
+<svg width="1120" height="1220" viewBox="0 0 1120 1220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="minigrid-bg" x1="80" y1="60" x2="1040" y2="1160" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcf8ff"/>
+      <stop offset="1" stop-color="#f2fbf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="1220" rx="32" fill="url(#minigrid-bg)"/>
+  <rect x="56" y="56" width="1008" height="1108" rx="28" fill="#ffffff" stroke="#d9cee8" stroke-width="2"/>
+  <text x="96" y="120" fill="#4b2c67" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700">MiniGrid Path Variants</text>
+  <text x="96" y="160" fill="#47655b" font-family="DejaVu Sans, Arial, sans-serif" font-size="20">Imported from the project figure deck and wrapped for docs-safe rendering.</text>
+  <rect x="94" y="202" width="932" height="932" rx="20" fill="#f8f6fb" stroke="#e4dcec" stroke-width="2"/>
+  <image href="minigrid-paths-external.png" x="110" y="218" width="900" height="900" preserveAspectRatio="xMidYMid meet"/>
+  <text x="96" y="1182" fill="#6a6277" font-family="DejaVu Sans, Arial, sans-serif" font-size="18">The wrapper keeps the original deck figure sharp while matching the documentation theme.</text>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650" role="img" aria-label="CTRL-P runtime map">
+  <defs>
+    <linearGradient id="components-bg-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f3fb"/>
+      <stop offset="100%" stop-color="#eef9f6"/>
+    </linearGradient>
+    <marker id="components-arrow-light" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="650" rx="30" fill="url(#components-bg-light)"/>
+  <rect x="26" y="26" width="1048" height="598" rx="26" fill="#ffffff" stroke="#ddd3e7" stroke-width="1.5"/>
+  <rect x="76" y="50" width="132" height="31" rx="15.5" fill="#f1e8fa" stroke="#c9b0df" stroke-width="1"/>
+  <text x="142" y="71" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a43a8">RUNTIME MAP</text>
+  <text x="76" y="114" font-family="DejaVu Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#42295b">How the main pieces interact</text>
+  <text x="76" y="144" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#5f5668">The manager coordinates one run, the agent owns learning, and the environment provides the</text>
+  <text x="76" y="168" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#5f5668">task signal.</text>
+
+  <rect x="84" y="176" width="268" height="219" rx="24" fill="#f3edf8" stroke="#c9b0df" stroke-width="2"/>
+  <rect x="84" y="176" width="268" height="8" rx="24" fill="#a978d6" opacity="0.95"/>
+  <rect x="112" y="204" width="151" height="31" rx="15.5" fill="#f8f1fd" stroke="#c9b0df" stroke-width="1"/>
+  <text x="187.5" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a43a8">ORCHESTRATION</text>
+  <text x="112" y="276" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#42295b">Manager</text>
+  <text x="112" y="313" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">Resolves config,</text>
+  <text x="112" y="335" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">prepares paths, expands</text>
+  <text x="112" y="357" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">sweeps, and dispatches</text>
+  <text x="112" y="379" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">tasks.</text>
+
+  <rect x="416" y="176" width="268" height="219" rx="24" fill="#edf7f1" stroke="#8cc3a0" stroke-width="2"/>
+  <rect x="416" y="176" width="268" height="8" rx="24" fill="#59d0b5" opacity="0.95"/>
+  <rect x="444" y="204" width="103" height="31" rx="15.5" fill="#f4fbf8" stroke="#8cc3a0" stroke-width="1"/>
+  <text x="495.5" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#1e6b3a">LEARNING</text>
+  <text x="444" y="276" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#195c31">Agent</text>
+  <text x="444" y="313" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">Builds algorithms, trains</text>
+  <text x="444" y="335" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">models, restores</text>
+  <text x="444" y="357" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">checkpoints, and runs</text>
+  <text x="444" y="379" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">eval or demo.</text>
+
+  <rect x="748" y="176" width="268" height="197" rx="24" fill="#fff5e8" stroke="#e6b26a" stroke-width="2"/>
+  <rect x="748" y="176" width="268" height="8" rx="24" fill="#f0d17a" opacity="0.95"/>
+  <rect x="776" y="204" width="119" height="31" rx="15.5" fill="#fffaf0" stroke="#e6b26a" stroke-width="1"/>
+  <text x="835.5" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#8c5a15">SIMULATION</text>
+  <text x="776" y="276" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#8c5a15">Environment</text>
+  <text x="776" y="313" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">Provides observations,</text>
+  <text x="776" y="335" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">rewards, done flags, and</text>
+  <text x="776" y="357" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">optional info fields.</text>
+
+  <rect x="118" y="408" width="216" height="162" rx="24" fill="#f8fbfc" stroke="#d7e3ea" stroke-width="2"/>
+  <rect x="118" y="408" width="216" height="8" rx="24" fill="#0f4c5c" opacity="0.92"/>
+  <rect x="146" y="436" width="82" height="31" rx="15.5" fill="#ffffff" stroke="#d7e3ea" stroke-width="1"/>
+  <text x="187" y="457" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f4c5c">INPUTS</text>
+  <text x="146" y="494" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f4c5c">experiments/&lt;env&gt;/</text>
+  <text x="146" y="520" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f4c5c">&lt;task&gt;</text>
+  <text x="146" y="550" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">Task-local inputs.</text>
+
+  <rect x="442" y="408" width="216" height="163" rx="24" fill="#f8fbfc" stroke="#d7e3ea" stroke-width="2"/>
+  <rect x="442" y="408" width="216" height="8" rx="24" fill="#0f4c5c" opacity="0.92"/>
+  <rect x="470" y="436" width="68" height="31" rx="15.5" fill="#ffffff" stroke="#d7e3ea" stroke-width="1"/>
+  <text x="504" y="457" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f4c5c">CODE</text>
+  <text x="470" y="498" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f4c5c">learning/</text>
+  <text x="470" y="534" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">Algorithms and</text>
+  <text x="470" y="555" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">policies.</text>
+
+  <rect x="766" y="408" width="216" height="206" rx="24" fill="#f8fbfc" stroke="#d7e3ea" stroke-width="2"/>
+  <rect x="766" y="408" width="216" height="8" rx="24" fill="#0f4c5c" opacity="0.92"/>
+  <rect x="794" y="436" width="97" height="31" rx="15.5" fill="#ffffff" stroke="#d7e3ea" stroke-width="1"/>
+  <text x="842.5" y="457" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f4c5c">OUTPUTS</text>
+  <text x="794" y="494" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#0f4c5c">&lt;task&gt;/runs</text>
+  <text x="794" y="550" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">Checkpoints,</text>
+  <text x="794" y="571" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">metrics, and</text>
+  <text x="794" y="592" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">artifacts.</text>
+
+  <path d="M352 266 L416 266" stroke="#a978d6" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#components-arrow-light)"/>
+  <path d="M684 266 L748 266" stroke="#59d0b5" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#components-arrow-light)"/>
+  <path d="M226 408 L226 374" stroke="#a978d6" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="10 10" marker-end="url(#components-arrow-light)"/>
+  <path d="M550 408 L550 374" stroke="#59d0b5" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="10 10" marker-end="url(#components-arrow-light)"/>
+  <path d="M874 408 L874 374" stroke="#e6b26a" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="10 10" marker-end="url(#components-arrow-light)"/>
+  <rect x="360" y="228" width="90" height="26" rx="13" fill="#f8f1fd" stroke="#c9b0df" stroke-width="1"/>
+  <text x="405" y="246" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" font-weight="700" fill="#7a43a8">DISPATCH</text>
+  <rect x="693" y="228" width="58" height="26" rx="13" fill="#f4fbf8" stroke="#8cc3a0" stroke-width="1"/>
+  <text x="722" y="246" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" font-weight="700" fill="#1e6b3a">STEP</text>
+</svg>

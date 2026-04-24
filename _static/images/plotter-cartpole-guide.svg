@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" role="img" aria-labelledby="title desc">
+  <title id="title">CartPole plotter selections</title>
+  <desc id="desc">A recreated view of the CTRL-P plotting notebook showing the CartPole selections needed for the first plot.</desc>
+  <rect width="1400" height="860" rx="28" fill="#f6f2fb"/>
+  <rect x="26" y="26" width="1348" height="808" rx="24" fill="#ffffff" stroke="#ddd3ea" stroke-width="2"/>
+  <rect x="54" y="54" width="1292" height="54" rx="16" fill="#f2ebfa" stroke="#e0d2f0"/>
+  <text x="84" y="88" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#51306e">Notebook Plotter</text>
+  <text x="1230" y="88" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#73598f">CartPole example</text>
+
+  <rect x="54" y="132" width="540" height="670" rx="24" fill="#fbf8fe" stroke="#e3d8f1"/>
+  <text x="84" y="176" font-family="DejaVu Sans, Arial, sans-serif" font-size="24" font-weight="700" fill="#51306e">Select These Values</text>
+  <text x="84" y="204" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#726781">Run all notebook cells first, then set the plotter like this.</text>
+
+  <text x="84" y="250" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#5e4378">Environment</text>
+  <rect x="84" y="264" width="480" height="52" rx="14" fill="#ffffff" stroke="#ccb8e2" stroke-width="2"/>
+  <text x="106" y="297" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#2f233c">cartpole-v1</text>
+
+  <text x="84" y="348" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#5e4378">Task</text>
+  <rect x="84" y="362" width="228" height="52" rx="14" fill="#ffffff" stroke="#ccb8e2" stroke-width="2"/>
+  <text x="106" y="395" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#2f233c">base</text>
+
+  <text x="336" y="348" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#5e4378">Algorithm</text>
+  <rect x="336" y="362" width="228" height="52" rx="14" fill="#ffffff" stroke="#ccb8e2" stroke-width="2"/>
+  <text x="358" y="395" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#2f233c">ppo</text>
+
+  <text x="84" y="446" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#5e4378">Experiment</text>
+  <rect x="84" y="460" width="228" height="52" rx="14" fill="#ffffff" stroke="#ccb8e2" stroke-width="2"/>
+  <text x="106" y="493" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#2f233c">base</text>
+
+  <text x="336" y="446" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#5e4378">Agent</text>
+  <rect x="336" y="460" width="228" height="52" rx="14" fill="#ffffff" stroke="#ccb8e2" stroke-width="2"/>
+  <text x="358" y="493" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#2f233c">seed_0</text>
+
+  <text x="84" y="544" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#5e4378">CSV</text>
+  <rect x="84" y="558" width="480" height="80" rx="18" fill="#ffffff" stroke="#7a43a8" stroke-width="3"/>
+  <text x="106" y="592" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#2f233c">progress</text>
+  <text x="106" y="618" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#726781">Use this for the training curve.</text>
+  <text x="328" y="592" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#2f233c">eval</text>
+  <text x="328" y="618" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#726781">Use this for evaluation results.</text>
+
+  <text x="84" y="676" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#5e4378">X and Y values</text>
+  <rect x="84" y="690" width="228" height="56" rx="14" fill="#ffffff" stroke="#ccb8e2" stroke-width="2"/>
+  <text x="106" y="724" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#2f233c">choose columns</text>
+  <rect x="336" y="690" width="228" height="56" rx="14" fill="#ffffff" stroke="#ccb8e2" stroke-width="2"/>
+  <text x="358" y="724" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#2f233c">choose columns</text>
+
+  <rect x="84" y="762" width="180" height="40" rx="20" fill="#2f8f7b"/>
+  <text x="174" y="788" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Press Plot</text>
+
+  <rect x="624" y="132" width="722" height="670" rx="24" fill="#fffefe" stroke="#e3d8f1"/>
+  <text x="656" y="176" font-family="DejaVu Sans, Arial, sans-serif" font-size="24" font-weight="700" fill="#51306e">What You Will See</text>
+  <text x="656" y="204" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#726781">A simple first plot is enough. You are mainly checking whether learning improves.</text>
+
+  <rect x="656" y="230" width="658" height="424" rx="20" fill="#faf7fd" stroke="#e1d5ef"/>
+  <path d="M 712 594 L 712 276 L 1272 276" fill="none" stroke="#b6a7c8" stroke-width="2"/>
+  <text x="708" y="262" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#7b6f89">reward</text>
+  <text x="1218" y="620" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#7b6f89">steps</text>
+  <path d="M 734 562 C 804 530, 842 508, 900 478 S 1042 400, 1118 356 S 1202 318, 1252 304" fill="none" stroke="#2f8f7b" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="900" cy="478" r="6" fill="#2f8f7b"/>
+  <circle cx="1118" cy="356" r="6" fill="#2f8f7b"/>
+  <rect x="870" y="314" width="254" height="88" rx="18" fill="#ffffff" stroke="#cfe9e2" stroke-width="2"/>
+  <text x="894" y="348" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#1f5f53">Training is improving</text>
+  <text x="894" y="376" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#5d6c69">This is the main thing to check</text>
+
+  <rect x="656" y="684" width="658" height="86" rx="18" fill="#f4eff9" stroke="#e1d5ef"/>
+  <text x="686" y="720" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#51306e">Behind the plot</text>
+  <text x="686" y="748" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#61556f">progress.csv = training history, eval.csv = evaluation summary</text>
+</svg>
