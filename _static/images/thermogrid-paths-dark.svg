@@ -1,0 +1,15 @@
+<svg width="1120" height="1220" viewBox="0 0 1120 1220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="thermogrid-bg-dark" x1="80" y1="60" x2="1040" y2="1160" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#09080d"/>
+      <stop offset="1" stop-color="#13111a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="1220" rx="32" fill="url(#thermogrid-bg-dark)"/>
+  <rect x="56" y="56" width="1008" height="1108" rx="28" fill="#121019" stroke="#31293d" stroke-width="2"/>
+  <text x="96" y="120" fill="#e0caf0" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700">ThermoGrid Path Variants</text>
+  <text x="96" y="160" fill="#a6c0df" font-family="DejaVu Sans, Arial, sans-serif" font-size="20">Imported from the project figure deck and wrapped for docs-safe rendering.</text>
+  <rect x="94" y="202" width="932" height="932" rx="20" fill="#191622" stroke="#31293d" stroke-width="2"/>
+  <image href="thermogrid-paths-external.jpg" x="110" y="218" width="900" height="900" preserveAspectRatio="xMidYMid meet"/>
+  <text x="96" y="1182" fill="#b2acbd" font-family="DejaVu Sans, Arial, sans-serif" font-size="18">The wrapper preserves the original process-path layout without leaving a bright frame in dark mode.</text>
+</svg>

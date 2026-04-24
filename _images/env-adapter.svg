@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="660" viewBox="0 0 1180 660" role="img" aria-label="Environment paths in CTRL-P">
+  <defs>
+    <linearGradient id="adapter-bg-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f3fb"/>
+      <stop offset="100%" stop-color="#eef9f6"/>
+    </linearGradient>
+    <marker id="adapter-arrow-light" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="1180" height="660" rx="30" fill="url(#adapter-bg-light)"/>
+  <rect x="26" y="26" width="1128" height="608" rx="26" fill="#ffffff" stroke="#d9d2e4" stroke-width="1.5"/>
+  <rect x="84" y="50" width="214" height="31" rx="15.5" fill="#f1e8fa" stroke="#c9b0df" stroke-width="1"/>
+  <text x="191" y="71" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a43a8">ENVIRONMENT PATHS</text>
+  <text x="84" y="114" font-family="DejaVu Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#42295b">Environment paths in CTRL-P</text>
+  <text x="84" y="144" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#5f5668">Built-in environments, make-your-own packages, and Gym fallback all meet at</text>
+  <text x="84" y="168" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#5f5668">the same runtime.</text>
+
+  <rect x="76" y="176" width="248" height="244" rx="24" fill="#f3edf8" stroke="#c9b0df" stroke-width="2"/>
+  <rect x="76" y="176" width="248" height="8" rx="24" fill="#a978d6" opacity="0.95"/>
+  <rect x="104" y="204" width="142" height="31" rx="15.5" fill="#f8f1fd" stroke="#c9b0df" stroke-width="1"/>
+  <text x="175" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a43a8">PACKAGE DEFAULTS</text>
+  <text x="104" y="272" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#42295b">Built-in env</text>
+  <text x="104" y="307" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">Example: thermogrid</text>
+  <text x="104" y="331" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">Reads packaged defaults</text>
+  <text x="104" y="355" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">from src/ctrlp/environments/</text>
+  <text x="104" y="379" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">&lt;env&gt;/defaults/</text>
+
+  <rect x="350" y="176" width="248" height="244" rx="24" fill="#edf7f1" stroke="#8cc3a0" stroke-width="2"/>
+  <rect x="350" y="176" width="248" height="8" rx="24" fill="#59d0b5" opacity="0.95"/>
+  <rect x="378" y="204" width="147" height="31" rx="15.5" fill="#f4fbf8" stroke="#8cc3a0" stroke-width="1"/>
+  <text x="451.5" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#1e6b3a">BUILD YOUR OWN</text>
+  <text x="378" y="272" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#195c31">Make your own</text>
+  <text x="378" y="307" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">Create a package under</text>
+  <text x="378" y="331" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">src/ctrlp/environments/</text>
+  <text x="378" y="355" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">&lt;env&gt;/</text>
+  <text x="378" y="379" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">Then add env.py, model.py,</text>
+  <text x="378" y="403" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">and defaults/</text>
+
+  <rect x="624" y="176" width="248" height="244" rx="24" fill="#fff5e8" stroke="#e6b26a" stroke-width="2"/>
+  <rect x="624" y="176" width="248" height="8" rx="24" fill="#f0d17a" opacity="0.95"/>
+  <rect x="652" y="204" width="116" height="31" rx="15.5" fill="#fffaf0" stroke="#e6b26a" stroke-width="1"/>
+  <text x="710" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#8c5a15">GYM FALLBACK</text>
+  <text x="652" y="272" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#8c5a15">Gym env</text>
+  <text x="652" y="307" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">Example: CartPole-v1</text>
+  <text x="652" y="331" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">Uses</text>
+  <text x="652" y="355" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">gymnasium.make(env_id)</text>
+  <text x="652" y="379" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">Bootstraps editable configs</text>
+  <text x="652" y="403" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5335">on first run</text>
+
+  <rect x="898" y="176" width="194" height="220" rx="24" fill="#f8fbfc" stroke="#bad3de" stroke-width="2"/>
+  <rect x="898" y="176" width="194" height="8" rx="24" fill="#0f4c5c" opacity="0.92"/>
+  <rect x="926" y="204" width="96" height="31" rx="15.5" fill="#ffffff" stroke="#bad3de" stroke-width="1"/>
+  <text x="974" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f4c5c">RUNTIME</text>
+  <text x="926" y="272" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f4c5c">Shared</text>
+  <text x="926" y="307" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#31535f">resolve</text>
+  <text x="926" y="331" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#31535f">check</text>
+  <text x="926" y="355" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#31535f">train / eval</text>
+
+  <rect x="266" y="446" width="648" height="168" rx="24" fill="#f8fbfc" stroke="#d7e3ea" stroke-width="2"/>
+  <rect x="266" y="446" width="648" height="8" rx="24" fill="#0f4c5c" opacity="0.92"/>
+  <rect x="294" y="474" width="106" height="31" rx="15.5" fill="#ffffff" stroke="#d7e3ea" stroke-width="1"/>
+  <text x="347" y="495" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f4c5c">ARTIFACTS</text>
+  <text x="294" y="534" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f4c5c">Inputs and outputs stay</text>
+  <text x="294" y="560" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f4c5c">editable and separate</text>
+  <text x="294" y="584" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">experiments/&lt;env&gt;/&lt;task&gt;/ for inputs,</text>
+  <text x="294" y="606" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">task-local runs/ for generated outputs, and data/.</text>
+
+  <path d="M324 286 L350 286" stroke="#a978d6" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow-light)"/>
+  <path d="M598 286 L624 286" stroke="#59d0b5" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow-light)"/>
+  <path d="M872 286 L898 286" stroke="#e6b26a" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow-light)"/>
+  <path d="M995 420 L995 446" stroke="#0f4c5c" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow-light)"/>
+</svg>
