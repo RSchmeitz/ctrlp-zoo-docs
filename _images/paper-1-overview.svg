@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-label="Overview of paper-1 CTRL-P workflow">
+  <defs>
+    <linearGradient id="paper1-bg" x1="40" y1="20" x2="1220" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff8f2"/>
+      <stop offset="0.52" stop-color="#fbf7ff"/>
+      <stop offset="1" stop-color="#f1fbf8"/>
+    </linearGradient>
+    <filter id="paper1-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#1c1624" flood-opacity="0.14"/>
+    </filter>
+    <marker id="paper1-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#277868"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="560" rx="34" fill="url(#paper1-bg)"/>
+  <rect x="42" y="42" width="1196" height="476" rx="30" fill="#ffffff" stroke="#ded4ea" stroke-width="2"/>
+
+  <text x="82" y="105" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#7a43a8">PAPER-1 WORKFLOW</text>
+  <text x="82" y="148" font-family="DejaVu Sans, Arial, sans-serif" font-size="38" font-weight="700" fill="#322044">Learning-based toolpath planning</text>
+  <text x="82" y="181" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" fill="#5f5668">CTRL-P connects procedural geometries, geometric and thermal environments, trainable policies, and rollout evaluation.</text>
+
+  <g filter="url(#paper1-shadow)">
+    <rect x="82" y="238" width="240" height="170" rx="22" fill="#f7f0fc" stroke="#c9b0df" stroke-width="2"/>
+    <rect x="82" y="238" width="240" height="8" rx="22" fill="#a978d6"/>
+    <text x="112" y="290" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="700" fill="#4b2c67">ProcGen</text>
+    <text x="112" y="326" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">Irregular target masks</text>
+    <text x="112" y="351" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">for train and test</text>
+    <text x="112" y="376" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">generalization.</text>
+
+    <rect x="382" y="238" width="270" height="170" rx="22" fill="#eef9f5" stroke="#8cc3a0" stroke-width="2"/>
+    <rect x="382" y="238" width="270" height="8" rx="22" fill="#59d0b5"/>
+    <text x="412" y="290" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="700" fill="#195c31">CTRL-P envs</text>
+    <text x="412" y="326" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">Geometric path filling</text>
+    <text x="412" y="351" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">and finite-element</text>
+    <text x="412" y="376" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#40614c">thermal feedback.</text>
+
+    <rect x="712" y="238" width="210" height="170" rx="22" fill="#fff6df" stroke="#e0be74" stroke-width="2"/>
+    <rect x="712" y="238" width="210" height="8" rx="22" fill="#f0c75e"/>
+    <text x="742" y="290" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="700" fill="#6b4a00">Agents</text>
+    <text x="742" y="326" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5631">DQN and PPO learn</text>
+    <text x="742" y="351" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5631">adaptive scan orders</text>
+    <text x="742" y="376" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#6b5631">from interaction.</text>
+
+    <rect x="982" y="238" width="216" height="170" rx="22" fill="#f3f7fa" stroke="#9bb8c4" stroke-width="2"/>
+    <rect x="982" y="238" width="216" height="8" rx="22" fill="#5e9bad"/>
+    <text x="1012" y="290" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="700" fill="#245366">Evaluation</text>
+    <text x="1012" y="326" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#455f6a">Zigzag baseline,</text>
+    <text x="1012" y="351" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#455f6a">rollout metrics, and</text>
+    <text x="1012" y="376" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#455f6a">trajectory inspection.</text>
+  </g>
+
+  <path d="M322 323 L382 323" stroke="#277868" stroke-width="4" stroke-linecap="round" marker-end="url(#paper1-arrow)"/>
+  <path d="M652 323 L712 323" stroke="#277868" stroke-width="4" stroke-linecap="round" marker-end="url(#paper1-arrow)"/>
+  <path d="M922 323 L982 323" stroke="#277868" stroke-width="4" stroke-linecap="round" marker-end="url(#paper1-arrow)"/>
+
+  <rect x="82" y="444" width="1116" height="42" rx="21" fill="#f7f4fa" stroke="#ded4ea"/>
+  <text x="640" y="471" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#4d4658">Reported outcome: learned policies adapt to shape and thermal feedback instead of following a fixed raster path.</text>
+</svg>
