@@ -1,0 +1,9 @@
+{
+  "schema": "ctrlp.documentation-build.v1",
+  "source_kind": "development working tree",
+  "source_revision": "8cb9527bfee0575665a558289df5eac3d14ea3b4",
+  "code_sha256": "e3517d4d0cbd1ff6d60c2e460e930b7796546a6d8ea209f8ce01b07dafc1df68",
+  "controls_sha256": "bad8cf01a4a6383874752efe072778024fa0b73f04adb02757bae5f8fc577f0d",
+  "documentation_sha256": "eb0cd13c2e653af8820e6d259ba4e899fd4babb43c6924869d659bf3c88ff9eb",
+  "built_at": "2026-11-16T15:25:17.699936+00:00"
+}

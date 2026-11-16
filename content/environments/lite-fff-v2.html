@@ -1,0 +1,634 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="PBFLite" href="lite-pbf.html"><link rel="prev" title="FFFLite" href="lite-fff.html">
+        <link rel="canonical" href="https://rschmeitz.github.io/ctrlp-zoo-docs/content/environments/lite-fff-v2.html">
+        <link rel="prefetch" href="../../_static/images/white.svg" as="image">
+        <link rel="prefetch" href="../../_static/images/dark.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/simple.svg"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>FFFLite V2 - CTRL-P Zoo — development documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=70d7d5f1" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+<script>
+  const storedTheme = localStorage.getItem("theme");
+  const theme = storedTheme || "dark";
+  document.body.dataset.theme = theme;
+  if (!storedTheme) {
+    localStorage.setItem("theme", theme);
+  }
+</script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">CTRL-P Zoo — development documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/images/white.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/images/dark.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">CTRL-P Zoo — development documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Start Here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experiments.html">Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-guide.html">Command Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-layout.html">Project Layout</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workflows</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../workflows/index.html">Workflows</a><input aria-label="Toggle navigation of Workflows" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/datasets.html">Datasets and physical trajectory export</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/visualization.html">Visualization and policy replay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/research-controls.html">Experimental controls and diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/lens.html">Lens: frozen-policy diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daph.html">DAPH gradual demonstration guidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/attempts.html">Approved studies and the execution adapter</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations/reinforcement-learning.html">Reinforcement Learning</a><input aria-label="Toggle navigation of Reinforcement Learning" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/core-rl-concepts.html">Core RL Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/environment-design.html">Environment Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/experiment-design.html">Experiment Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/rl-parameter-effects.html">RL Parameter Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/grid-rl-experiments.html">Grid-Style RL Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/rl-in-additive-manufacturing.html">RL In Additive Manufacturing</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../research/research.html">Research</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../publications.html">Publications</a><input aria-label="Toggle navigation of Publications" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../publications/paper-1.html">paper-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../publications/paper-2.html">paper-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../publications/paper-3.html">paper-3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../research-reading-list.html">Research Reading List</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects.html">Projects</a><input aria-label="Toggle navigation of Projects" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../projects/master/index.html">Master</a><input aria-label="Toggle navigation of Master" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../projects/master/RaceAgainstTime/race-against-time.html">Race Against Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/master/ThermoMechanicalFEM/thermo-mechanical-fem-solver.html">Thermo-Mechanical FEM Solver</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../projects/bachelor/index.html">Bachelor</a><input aria-label="Toggle navigation of Bachelor" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../projects/bachelor/BeatTheAI/beat-the-ai-agent.html">Beat the AI Agent</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../runtime/runtime.html">Runtime</a><input aria-label="Toggle navigation of Runtime" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../runtime/tasks.html">Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../runtime/mode-inputs.html">Mode Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../runtime/config.html">Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hpo.html">HPO</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Environments</a><input aria-label="Toggle navigation of Environments" checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../environment-guide.html">Environment Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cartpole-v1.html">CartPole-v1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carracing-v2.html">CarRacing-v2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lite-fff.html">FFFLite</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">FFFLite V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lite-pbf.html">PBFLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lite-pbf-v2.html">PBFLite V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lite-pbf-v2-mask-sizing.html">Lite PBF V2 mask sizing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lite-v2-procgen-difficulty.html">Lite V2 ProcGen difficulty presets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dawn.html">Dawn: native PBF and FFF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="julia-bridge.html">Julia Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html">Graph PBF in Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mirage-sla-v0.html">Mirage SLA V0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="make-your-own-environment.html">Make Your Own Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../internals/internals.html">Internals</a><input aria-label="Toggle navigation of Internals" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html">Code ownership and extension map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent.html">Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design.html">Design</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../algorithms/index.html">Algorithms</a><input aria-label="Toggle navigation of Algorithms" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../algorithms/algorithm-architecture.html">Algorithm Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../algorithms/algorithm-structure.html">Algorithm Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../algorithms/model-lifecycle.html">Pretraining, fine-tuning and model composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../algorithms/trainers.html">Trainer compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../algorithms/representation-learning.html">Imitation and representation learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/runtime_api.html">Runtime API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/environments_api.html">Environment API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/learning_api.html">Learning API</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="ffflite-v2">
+<h1>FFFLite V2<a class="headerlink" href="#ffflite-v2" title="Link to this heading">¶</a></h1>
+<section id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">lite/fff-v2</span></code> is a fast 2D kinematic source-motion and deposition/fill
+surrogate. It rasterizes a source footprint and accumulates deposited
+occupancy. It does <strong>not</strong> model heat transfer, extrusion rheology, bonding,
+stress, displacement, layers, material conservation, or quantitative DAWN FFF
+physics.</p>
+<p>Use V2 for inexpensive control studies where the relevant semantics are source
+motion, source activity, target coverage, and spill outside a target. Do not
+describe its deposited-occupancy channel as a thermodynamic phase or claim that a Lite
+outcome is physically or numerically equivalent to DAWN.</p>
+</section>
+<section id="version-and-replay-boundary">
+<h2>Version and replay boundary<a class="headerlink" href="#version-and-replay-boundary" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Surface</p></th>
+<th class="head"><p>Contract</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lite/fff</span></code>, <code class="docutils literal notranslate"><span class="pre">ctrlp/lite-fff-v0</span></code></p></td>
+<td><p>frozen exact-replay surface for existing controls, snapshots, checkpoints, VecNormalize state, traces, and results</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lite/fff-v2</span></code>, <code class="docutils literal notranslate"><span class="pre">ctrlp/lite-fff-v2</span></code></p></td>
+<td><p>independent source and artifact tree for new kinematic studies</p></td>
+</tr>
+<tr class="row-even"><td><p>V0 versus V2 trained from scratch with <code class="docutils literal notranslate"><span class="pre">paper1</span></code> controls</p></td>
+<td><p>study-level comparable</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0 checkpoint loaded as V2</p></td>
+<td><p>unsupported; no redirect, copy, or automatic migration</p></td>
+</tr>
+<tr class="row-even"><td><p>V2 versus DAWN FFF</p></td>
+<td><p>semantic/kinematic alignment only</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Existing V0 controls keep resolving to V0. New work must select
+<code class="docutils literal notranslate"><span class="pre">lite/fff-v2</span></code> explicitly. V2 outputs belong below
+<code class="docutils literal notranslate"><span class="pre">experiments/lite/fff-v2/runs/</span></code>; never copy V0 snapshots, checkpoints,
+normalization state, evaluations, or results into that tree.</p>
+</section>
+<section id="coordinates-and-update-order">
+<h2>Coordinates and update order<a class="headerlink" href="#coordinates-and-update-order" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Config vectors are <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y]</span></code>.</p></li>
+<li><p>Arrays are <code class="docutils literal notranslate"><span class="pre">(row=y,</span> <span class="pre">column=x)</span></code>.</p></li>
+<li><p>Arrays keep the Paper 1 image convention: row indices increase downward.</p></li>
+<li><p>The default/demo action profile follows DAWN FFF world controls:
+<code class="docutils literal notranslate"><span class="pre">U=[0,1]</span></code>, <code class="docutils literal notranslate"><span class="pre">D=[0,-1]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid.cells</span></code> is <code class="docutils literal notranslate"><span class="pre">[nx,</span> <span class="pre">ny]</span></code> for the unpadded interior.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid.length_m</span></code> is the unpadded interior size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding_cells:</span> <span class="pre">1</span></code> produces <code class="docutils literal notranslate"><span class="pre">(ny</span> <span class="pre">+</span> <span class="pre">2,</span> <span class="pre">nx</span> <span class="pre">+</span> <span class="pre">2)</span></code> arrays.</p></li>
+<li><p>Paper 1 <code class="docutils literal notranslate"><span class="pre">cell_relative</span></code> positions select over the complete padded policy grid.</p></li>
+</ul>
+<p>Movement is <code class="docutils literal notranslate"><span class="pre">direction</span> <span class="pre">*</span> <span class="pre">speed_m_per_s</span> <span class="pre">*</span> <span class="pre">step_duration_s</span></code>. Each step applies
+the action first and then deposits at the realized position when the source is
+active. Toggle-on therefore deposits immediately; toggle-off does not. An
+out-of-bounds move leaves the source in place, reports <code class="docutils literal notranslate"><span class="pre">invalid_action</span></code>, and
+still deposits there when active. Reset never deposits merely because ProcGen
+starts the source active.</p>
+</section>
+<section id="observation-and-action-contract">
+<h2>Observation and action contract<a class="headerlink" href="#observation-and-action-contract" title="Link to this heading">¶</a></h2>
+<p>The default observation is a <code class="docutils literal notranslate"><span class="pre">float32</span> <span class="pre">Box(0,</span> <span class="pre">1)</span></code> with channels:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Channel</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mask.processed</span></code></p></td>
+<td><p>cumulative binary deposited occupancy, not thermodynamic phase</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">source.0.field</span></code></p></td>
+<td><p>current footprint: <code class="docutils literal notranslate"><span class="pre">1.0</span></code> active, <code class="docutils literal notranslate"><span class="pre">0.5</span></code> inactive, <code class="docutils literal notranslate"><span class="pre">0.0</span></code> elsewhere</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mask.target</span></code></p></td>
+<td><p>binary target occupancy</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These are the current <code class="docutils literal notranslate"><span class="pre">physical-state-v1</span></code> observation selectors. Historical
+short names require an explicit contract conversion; they are not aliases in
+new V2 controls. See the <a class="reference internal" href="../environment-guide.html#physical-state-contract"><span class="std std-ref">shared physical-state contract</span></a>.</p>
+<p>The default actions are <code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>, <code class="docutils literal notranslate"><span class="pre">D</span></code>, and <code class="docutils literal notranslate"><span class="pre">TOGGLE</span></code>, with the same
+vectors and arrow-key bindings as maintained DAWN FFF fill controls. The
+versioned Paper 1 controls explicitly preserve the historical image-frame
+convention <code class="docutils literal notranslate"><span class="pre">U=[0,-1]</span></code>, <code class="docutils literal notranslate"><span class="pre">D=[0,1]</span></code> and <code class="docutils literal notranslate"><span class="pre">A/D/W/S/SPACE</span></code> bindings.</p>
+<p>The default source moves exactly one grid cell per action at both shipped
+resolutions and uses a one-cell footprint, matching DAWN FFF
+<code class="docutils literal notranslate"><span class="pre">xy_step_cells:</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">load.sigma:</span> <span class="pre">0</span></code>. Toggle and action-then-deposit ordering
+also match. This is semantic alignment only, not physical equivalence.</p>
+</section>
+<section id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">¶</a></h2>
+<p>V2 uses the same schema-driven <code class="docutils literal notranslate"><span class="pre">PhysicalSceneBuilder</span></code>, <code class="docutils literal notranslate"><span class="pre">RenderScene</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">FieldViewer</span></code> pipeline as Dawn FFF, Lite PBF V2 and the Dawn PBF adapter. Its composite
+panel displays cumulative deposited occupancy with target and source overlays.
+No nominal or display-only temperature is created. Geometry remains in the
+same physical units as the canonical state, while camera and cell-height
+adjustments remain presentation-only.</p>
+<p>Step info includes <code class="docutils literal notranslate"><span class="pre">score</span></code>, <code class="docutils literal notranslate"><span class="pre">procgen</span></code>, <code class="docutils literal notranslate"><span class="pre">is_success</span></code>, <code class="docutils literal notranslate"><span class="pre">task_complete</span></code>,
+<code class="docutils literal notranslate"><span class="pre">termination_reason</span></code>, <code class="docutils literal notranslate"><span class="pre">invalid_action</span></code>, <code class="docutils literal notranslate"><span class="pre">reward_terms</span></code>, and <code class="docutils literal notranslate"><span class="pre">kinematics</span></code>.
+<code class="docutils literal notranslate"><span class="pre">is_success</span></code> is true only on objective completion. A vector time limit is a
+truncation, not success. Objective termination includes <code class="docutils literal notranslate"><span class="pre">terminal_observation</span></code>.</p>
+</section>
+<section id="determinism-and-vectorization">
+<h2>Determinism and vectorization<a class="headerlink" href="#determinism-and-vectorization" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">reset(seed=s)</span></code> reseeds Gymnasium and ProcGen. Repeating the same seed repeats
+the sampled parameters, mask, source state, initial observation, and action
+trace. <code class="docutils literal notranslate"><span class="pre">reset(seed=None)</span></code> continues the ProcGen sequence. Vector workers use
+<code class="docutils literal notranslate"><span class="pre">base_seed</span> <span class="pre">+</span> <span class="pre">rank</span></code>, and the model has no global random generator or wall-clock
+state. The generic dummy and subprocess vector wrappers are sufficient.</p>
+</section>
+<section id="paper-1-profile">
+<h2>Paper 1 profile<a class="headerlink" href="#paper-1-profile" title="Link to this heading">¶</a></h2>
+<p>Four source-owned controls reconstruct the historical actions, three channel
+meanings, ProcGen splits, reward terms, algorithms, budgets, and evaluation
+protocol:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">depo_small/ppo/paper1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depo_small/dqn/paper1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depo_medium/ppo/paper1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depo_medium/dqn/paper1</span></code></p></li>
+</ul>
+<p>The small and medium observation shapes are <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">12</span> <span class="pre">x</span> <span class="pre">12</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">22</span> <span class="pre">x</span> <span class="pre">22</span></code>.
+These controls support a from-scratch, study-level comparison. They do not
+promise checkpoint compatibility, identical rewards, identical traces, or
+numerical equality with V0.</p>
+<p>Canonical evaluation uses <code class="docutils literal notranslate"><span class="pre">procgen-v1/lite-fff-v2/depo-small</span></code> and
+<code class="docutils literal notranslate"><span class="pre">procgen-v1/lite-fff-v2/depo-medium</span></code>. Their geometric scenario CSV payloads
+match V0 byte-for-byte, while their benchmark IDs, environment IDs, manifests,
+and fingerprints remain V2-specific.</p>
+</section>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>experiments/lite/fff-v2/runs/depo_small/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
+ctrlp<span class="w"> </span>experiments/lite/fff-v2/runs/depo_small/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>check
+ctrlp<span class="w"> </span>experiments/lite/fff-v2/runs/depo_medium/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>check
+ctrlp<span class="w"> </span>experiments/lite/fff-v2/runs/depo_small/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>train<span class="w"> </span>--envs<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>For controller-independent manual and path demonstrations, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>ctrlp.environments.lite.demo<span class="w"> </span>--env<span class="w"> </span>fff-v2<span class="w"> </span>--controller<span class="w"> </span>keyboard
+python<span class="w"> </span>-m<span class="w"> </span>ctrlp.environments.lite.demo<span class="w"> </span>--env<span class="w"> </span>fff-v2<span class="w"> </span>--controller<span class="w"> </span>gcode<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--path<span class="w"> </span>examples/lite/fff-zigzag.gcode
+</pre></div>
+</div>
+<p>Keyboard, G-code, and direct callers share the SI-valued <code class="docutils literal notranslate"><span class="pre">ProcessCommand</span></code>
+boundary below Gymnasium. G-code movement is interpolated rather than
+teleported, so an active FFF source deposits along the full realized segment.</p>
+</section>
+<section id="generalization-profile-opt-in">
+<h2>Generalization profile (opt-in)<a class="headerlink" href="#generalization-profile-opt-in" title="Link to this heading">¶</a></h2>
+<p>The default and Paper 1 profiles remain unchanged. A new observation profile
+may set <code class="docutils literal notranslate"><span class="pre">env.obs.grid:</span> <span class="pre">[x,</span> <span class="pre">y]</span></code>; the native <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">x)</span></code> fields are conservatively
+projected onto that fixed physical policy grid. Optional context planes may be
+listed in <code class="docutils literal notranslate"><span class="pre">env.obs.context</span></code>: <code class="docutils literal notranslate"><span class="pre">valid</span></code>, normalized <code class="docutils literal notranslate"><span class="pre">x</span></code>/<code class="docutils literal notranslate"><span class="pre">y</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">domain_x</span></code>/<code class="docutils literal notranslate"><span class="pre">domain_y</span></code>. Domain planes require
+<code class="docutils literal notranslate"><span class="pre">env.obs.context_reference_m:</span> <span class="pre">[x_m,</span> <span class="pre">y_m]</span></code> and are metadata, not hidden simulator
+state. The resolved representation is recorded as <code class="docutils literal notranslate"><span class="pre">fixed-policy-grid-v1</span></code>.</p>
+<p>Before loading a checkpoint, compare
+<code class="docutils literal notranslate"><span class="pre">build_policy_transfer_contract</span></code> results. Exact tensor shape only permits a
+load when channel meanings, action semantics, normalization, process type, and
+configuration provenance also match. Use <code class="docutils literal notranslate"><span class="pre">resolve_paired_benchmark</span></code> to verify
+that Lite V2 and DAWN consume one immutable scenario bank; this is an
+evaluation-provenance check, not evidence of task-performance transfer.</p>
+<p>The policy-transfer preflight is maintained in private research tooling;
+students should use <code class="docutils literal notranslate"><span class="pre">check</span></code> on the source and target controls before running a
+short held-out rollout.</p>
+</section>
+<section id="versioned-procgen-difficulty">
+<h2>Versioned ProcGen difficulty<a class="headerlink" href="#versioned-procgen-difficulty" title="Link to this heading">¶</a></h2>
+<p>New cross-environment baseline studies should use the shared
+<a class="reference internal" href="lite-v2-procgen-difficulty.html"><span class="std std-doc">Lite V2 ProcGen difficulty presets</span></a>. They add
+explicit easy-to-hard levels with letters for training, symbols for validation,
+geometric shapes for testing, and native boundary-safe <code class="docutils literal notranslate"><span class="pre">shape-fit-v1</span></code> sizes.
+The historical <code class="docutils literal notranslate"><span class="pre">default</span></code> and Paper 1 profiles remain unchanged.</p>
+</section>
+<section id="read-next">
+<h2>Read next<a class="headerlink" href="#read-next" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="lite-fff.html"><span class="std std-doc">Frozen FFFLite V0</span></a></p></li>
+<li><p><a class="reference internal" href="dawn.html"><span class="std std-doc">Dawn</span></a></p></li>
+<li><p><a class="reference internal" href="../environment-guide.html"><span class="std std-doc">Environment Guide</span></a></p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+
+        <div class="related-pages">
+          <a class="next-page" href="lite-pbf.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">PBFLite</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="lite-fff.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">FFFLite</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, R. Schmeitz
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+
+<p class="build-identity">
+  Development documentation ·
+  <a href="../../build-info.json">Build identity</a>
+  · source 8cb9527b
+</p>
+
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">FFFLite V2</a><ul>
+<li><a class="reference internal" href="#scope">Scope</a></li>
+<li><a class="reference internal" href="#version-and-replay-boundary">Version and replay boundary</a></li>
+<li><a class="reference internal" href="#coordinates-and-update-order">Coordinates and update order</a></li>
+<li><a class="reference internal" href="#observation-and-action-contract">Observation and action contract</a></li>
+<li><a class="reference internal" href="#visualization">Visualization</a></li>
+<li><a class="reference internal" href="#determinism-and-vectorization">Determinism and vectorization</a></li>
+<li><a class="reference internal" href="#paper-1-profile">Paper 1 profile</a></li>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+<li><a class="reference internal" href="#generalization-profile-opt-in">Generalization profile (opt-in)</a></li>
+<li><a class="reference internal" href="#versioned-procgen-difficulty">Versioned ProcGen difficulty</a></li>
+<li><a class="reference internal" href="#read-next">Read next</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=2be235dc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/js/image-lightbox.js?v=1d2aab39"></script>
+    <script src="../../_static/js/publications-pdf.js?v=5eb88f27"></script>
+    <script src="../../_static/js/projects-thesis-viewer.js?v=e7cbc223"></script>
+    </body>
+</html>

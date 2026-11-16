@@ -21,7 +21,7 @@
   <rect x="104" y="204" width="142" height="31" rx="15.5" fill="#f8f1fd" stroke="#c9b0df" stroke-width="1"/>
   <text x="175" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a43a8">PACKAGE DEFAULTS</text>
   <text x="104" y="272" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#42295b">Built-in env</text>
-  <text x="104" y="307" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">Example: thermogrid</text>
+  <text x="104" y="307" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">Example: lite/pbf</text>
   <text x="104" y="331" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">Reads packaged defaults</text>
   <text x="104" y="355" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">from src/ctrlp/environments/</text>
   <text x="104" y="379" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#5f5668">&lt;env&gt;/defaults/</text>
@@ -63,8 +63,8 @@
   <text x="347" y="495" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f4c5c">ARTIFACTS</text>
   <text x="294" y="534" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f4c5c">Inputs and outputs stay</text>
   <text x="294" y="560" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f4c5c">editable and separate</text>
-  <text x="294" y="584" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">experiments/&lt;env&gt;/&lt;task&gt;/ for inputs,</text>
-  <text x="294" y="606" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">task-local runs/ for generated outputs, and data/.</text>
+  <text x="294" y="584" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">presets/ and run.yml are source;</text>
+  <text x="294" y="606" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#4c6670">run folders and data/ hold generated outputs.</text>
 
   <path d="M324 286 L350 286" stroke="#a978d6" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow-light)"/>
   <path d="M598 286 L624 286" stroke="#59d0b5" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow-light)"/>

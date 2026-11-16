@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       path.textContent = entry.path || entry.pdf || "";
     }
     updateLink(paperLink, entry.paper, "Paper Link");
-    updateLink(codeLink, entry.code, "Code Repository");
+    updateLink(codeLink, entry.code, "Code Tag");
   }
 
   function updateLink(node, url, label) {

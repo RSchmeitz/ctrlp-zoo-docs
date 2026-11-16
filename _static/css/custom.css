@@ -1082,12 +1082,12 @@ body[data-theme="dark"] .content img[src$="defects-external.svg"] {
     content: url("../images/defects-external-dark.svg");
 }
 
-body[data-theme="dark"] .content img[src$="minigrid-paths.svg"] {
-    content: url("../images/minigrid-paths-dark.svg");
+body[data-theme="dark"] .content img[src$="lite-fff-paths.svg"] {
+    content: url("../images/lite-fff-paths-dark.svg");
 }
 
-body[data-theme="dark"] .content img[src$="thermogrid-paths.svg"] {
-    content: url("../images/thermogrid-paths-dark.svg");
+body[data-theme="dark"] .content img[src$="lite-pbf-paths.svg"] {
+    content: url("../images/lite-pbf-paths-dark.svg");
 }
 
 body[data-theme="dark"] .content img[src$="plotter-cartpole-guide.svg"] {
@@ -1147,12 +1147,12 @@ body[data-theme="dark"] .content table tbody tr:nth-child(even) {
         content: url("../images/defects-external-dark.svg");
     }
 
-    body:not([data-theme="light"]) .content img[src$="minigrid-paths.svg"] {
-        content: url("../images/minigrid-paths-dark.svg");
+    body:not([data-theme="light"]) .content img[src$="lite-fff-paths.svg"] {
+        content: url("../images/lite-fff-paths-dark.svg");
     }
 
-    body:not([data-theme="light"]) .content img[src$="thermogrid-paths.svg"] {
-        content: url("../images/thermogrid-paths-dark.svg");
+    body:not([data-theme="light"]) .content img[src$="lite-pbf-paths.svg"] {
+        content: url("../images/lite-pbf-paths-dark.svg");
     }
 
     body:not([data-theme="light"]) .content img[src$="plotter-cartpole-guide.svg"] {

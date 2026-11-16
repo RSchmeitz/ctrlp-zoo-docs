@@ -34,7 +34,7 @@
   <rect x="104" y="204" width="81" height="31" rx="15.5" fill="#251C33" stroke="#4B3B61" stroke-width="1"/>
   <text x="144.5" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#A978D6">NATIVE</text>
   <text x="104" y="274" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#F0E4FB">Built-in CTRL-P env</text>
-  <text x="104" y="311" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#D1C7DA">Example: thermogrid.</text>
+  <text x="104" y="311" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#D1C7DA">Example: lite/pbf.</text>
   <text x="104" y="333" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#D1C7DA">Loads packaged defaults</text>
   <text x="104" y="355" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#D1C7DA">from</text>
   <text x="104" y="377" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#D1C7DA">src/ctrlp/environments/&lt;env&gt;/defaults/.</text>
@@ -66,8 +66,8 @@
   <rect x="330" y="466" width="106" height="31" rx="15.5" fill="#241F2B" stroke="#615768" stroke-width="1"/>
   <text x="383.0" y="487" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#F5F1F8">ARTIFACTS</text>
   <text x="330" y="530" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#F5F1F8">Outputs and bootstrapped files</text>
-  <text x="330" y="566" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#CFC8D6">experiments/&lt;env&gt;/&lt;task&gt;/, task-local runs/, and</text>
-  <text x="330" y="587" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#CFC8D6">data/ appear when a mode needs them.</text>
+  <text x="330" y="566" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#CFC8D6">Authored presets and run.yml are source; run folders</text>
+  <text x="330" y="587" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#CFC8D6">and data/ hold generated outputs.</text>
   <path d="M 372 298 L 402 298" stroke="#CFA6F1" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow)"/>
   <path d="M 698 298 L 728 298" stroke="#7DE5CF" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow)"/>
   <path d="M 550 422 L 550 438" stroke="#7DE5CF" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#adapter-arrow)"/>
