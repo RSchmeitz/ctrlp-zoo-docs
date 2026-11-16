@@ -340,12 +340,10 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="grid-style-rl-experiments">
 <h1>Grid-Style RL Experiments<a class="headerlink" href="#grid-style-rl-experiments" title="Link to this heading">¶</a></h1>
-<p>This page collects practical research lessons from 2D grid-style reinforcement learning environments and maps them to CTRL-P tasks such as FFFLite, PBFLite, and DAWN fill-style environments.</p>
-<p>The goal is not to copy another benchmark. The goal is to understand which experimental controls matter when an agent moves over a 2D surface, chooses local actions, and receives reward from coverage, navigation, collection, or process quality.</p>
+<p>This page applies lessons from 2D grid RL to FFFLite, PBFLite and DAWN fill tasks. It focuses on controls that matter for local movement, coverage and process quality.</p>
 <section id="why-grid-environments-are-useful">
 <h2>Why Grid Environments Are Useful<a class="headerlink" href="#why-grid-environments-are-useful" title="Link to this heading">¶</a></h2>
-<p>Grid environments are useful because they separate parts of the RL problem.</p>
-<p>They can be made:</p>
+<p>Grid environments can isolate parts of the RL problem. They can be made:</p>
 <ul class="simple">
 <li><p>small enough for rapid debugging</p></li>
 <li><p>discrete enough for tabular or DQN baselines</p></li>
@@ -398,18 +396,7 @@
 </tbody>
 </table>
 </div>
-<p>Primary references:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://papers.nips.cc/paper_files/paper/2023/hash/e8916198466e8ef218a2185a491b49fa-Abstract-Datasets_and_Benchmarks.html">FFFLite and MiniWorld</a></p></li>
-<li><p><a class="reference external" href="https://github.com/openai/procgen">Procgen Benchmark</a></p></li>
-<li><p><a class="reference external" href="https://proceedings.mlr.press/v133/mohanty21a.html">Procgen competition paper</a></p></li>
-<li><p><a class="reference external" href="https://arxiv.org/abs/1903.03176">MinAtar</a></p></li>
-<li><p><a class="reference external" href="https://arxiv.org/abs/2109.13202">MiniHack</a></p></li>
-<li><p><a class="reference external" href="https://arxiv.org/abs/1810.08272">BabyAI</a></p></li>
-<li><p><a class="reference external" href="https://arxiv.org/abs/1908.03568">bsuite</a></p></li>
-<li><p><a class="reference external" href="https://gymnasium.farama.org/v0.26.3/environments/toy_text/cliff_walking/">Gymnasium CliffWalking</a></p></li>
-<li><p><a class="reference external" href="https://gymnasium.farama.org/v0.26.3/environments/toy_text/taxi/">Gymnasium Taxi</a></p></li>
-</ul>
+<p>References are listed at the <a class="reference internal" href="#sources">end of this page</a>.</p>
 </section>
 <section id="common-structure">
 <h2>Common Structure<a class="headerlink" href="#common-structure" title="Link to this heading">¶</a></h2>
@@ -684,11 +671,11 @@
 <li><p>physical/process diagnostics when available</p></li>
 <li><p>seed mean and spread</p></li>
 </ul>
-<p>For small studies, a good minimum is:</p>
+<p>For exploratory studies, use:</p>
 <ol class="arabic simple">
 <li><p>training curve</p></li>
 <li><p>fixed-evaluation mean and spread</p></li>
-<li><p>at least two seeds before making a study-level claim</p></li>
+<li><p>at least three seeds per arm in the approved plan</p></li>
 <li><p>one trace or demo when behavior matters</p></li>
 </ol>
 </section>
@@ -758,8 +745,8 @@ The next useful step is a fixed evaluation and one repeated seed, not a broad sw
 <ol class="arabic simple">
 <li><p>verify the current setup with <code class="docutils literal notranslate"><span class="pre">resolve</span></code>/<code class="docutils literal notranslate"><span class="pre">check</span></code>/short train</p></li>
 <li><p>compare one small challenger against one baseline</p></li>
-<li><p>request fixed evaluation if one looks better</p></li>
-<li><p>repeat the better setting with another seed</p></li>
+<li><p>plan the comparison and fixed evaluation across at least three seeds per arm</p></li>
+<li><p>launch the approved plan and inspect the results</p></li>
 <li><p>inspect trace/demo if reward and behavior disagree</p></li>
 <li><p>only then widen to HPO or larger task variants</p></li>
 </ol>
@@ -827,7 +814,7 @@ The next useful step is a fixed evaluation and one repeated seed, not a broad sw
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

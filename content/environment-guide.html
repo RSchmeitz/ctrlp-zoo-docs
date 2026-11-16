@@ -340,13 +340,8 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="environment-guide">
 <h1>Environment Guide<a class="headerlink" href="#environment-guide" title="Link to this heading">¶</a></h1>
-<p>CTRL-P supports two environment categories:</p>
-<p>Use <a class="reference internal" href="environments/make-your-own-environment.html"><span class="std std-doc">Make Your Own Environment</span></a> when you want to add a new built-in environment package and <a class="reference internal" href="command-guide.html"><span class="std std-doc">Command Guide</span></a> when you only need the high-level runtime split.</p>
+<p>CTRL-P supports built-in environments and standard Gymnasium environments through a generic adapter. To add a package, see <a class="reference internal" href="environments/make-your-own-environment.html"><span class="std std-doc">Make Your Own Environment</span></a>.</p>
 <p><img alt="Environment runtime paths" src="../_images/env-adapter.svg" /></p>
-<ul class="simple">
-<li><p>built-in CTRL-P environments such as <code class="docutils literal notranslate"><span class="pre">dawn</span></code>, <code class="docutils literal notranslate"><span class="pre">lite/fff-v2</span></code>, and <code class="docutils literal notranslate"><span class="pre">lite/pbf-v2</span></code></p></li>
-<li><p>standard Gymnasium environments through a generic adapter, such as <code class="docutils literal notranslate"><span class="pre">CartPole-v1</span></code> and <code class="docutils literal notranslate"><span class="pre">CarRacing-v2</span></code></p></li>
-</ul>
 <p>Environment selectors always identify one concrete runtime. A staged research
 workflow may move between Lite and DAWN, but labels such as <code class="docutils literal notranslate"><span class="pre">multi/fff</span></code> or
 <code class="docutils literal notranslate"><span class="pre">multi/pbf</span></code> are orchestration metadata and are deliberately rejected by the
@@ -410,7 +405,7 @@ state.source    ordered controllable sources
 state.status    process progress and discrete status
 </pre></div>
 </div>
-<p>For example, every one of these environments uses <code class="docutils literal notranslate"><span class="pre">state.mask.processed</span></code> for
+<p>Each uses <code class="docutils literal notranslate"><span class="pre">state.mask.processed</span></code> for
 the cumulative control result and <code class="docutils literal notranslate"><span class="pre">state.source[0]</span></code> for its first source.
 Persisted paths use <code class="docutils literal notranslate"><span class="pre">source.0.*</span></code>. Source indices are stable identities: existing
 sources cannot be reordered and additional sources are appended. The schema
@@ -473,22 +468,11 @@ provide short-name aliases such as <code class="docutils literal notranslate"><s
 <h2>Runtime Behavior<a class="headerlink" href="#runtime-behavior" title="Link to this heading">¶</a></h2>
 <section id="reset">
 <h3>Reset<a class="headerlink" href="#reset" title="Link to this heading">¶</a></h3>
-<p>At the start of each episode:</p>
-<ul class="simple">
-<li><p>the env is initialized to a valid start state</p></li>
-<li><p>seed and vector-wrapper settings are applied</p></li>
-<li><p>the first observation and info dict are returned</p></li>
-</ul>
+<p>Reset initializes the environment, applies seed and wrapper settings, and returns the first observation and info dict.</p>
 </section>
 <section id="step">
 <h3>Step<a class="headerlink" href="#step" title="Link to this heading">¶</a></h3>
-<p>Each step:</p>
-<ol class="arabic simple">
-<li><p>applies the selected action</p></li>
-<li><p>advances the environment state</p></li>
-<li><p>computes reward</p></li>
-<li><p>returns observation, reward, termination flags, and info</p></li>
-</ol>
+<p>Each step applies an action, advances the state and returns observation, reward, termination flags and info.</p>
 </section>
 <section id="render">
 <h3>Render<a class="headerlink" href="#render" title="Link to this heading">¶</a></h3>
@@ -633,7 +617,7 @@ provide short-name aliases such as <code class="docutils literal notranslate"><s
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

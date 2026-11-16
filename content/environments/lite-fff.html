@@ -350,26 +350,19 @@ migration between the environments.</p>
 </div>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>FFFLite is a discrete grid-filling environment designed for fast RL experiments on coverage and movement efficiency.</p>
-<p>It is the lightest built-in CTRL-P environment and the best default choice when you want a project-relevant smoke test without the heavier thermal solver used by PBFLite.</p>
+<p>FFFLite V0 is a discrete grid-filling environment for fast coverage and movement experiments. For new studies, use <a class="reference internal" href="lite-fff-v2.html"><span class="std std-doc">FFFLite V2</span></a>.</p>
 <p><img alt="FFFLite Environment" src="../../_images/Fill.svg" /></p>
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../../_images/lite-fff-paths.svg"><img alt="FFFLite path variants imported from the project figure deck and wrapped as an SVG panel." src="../../_images/lite-fff-paths.svg" style="width: 78%;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Path illustration from the project figure deck, now wrapped as an SVG panel so it stays readable in both light and dark themes.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Example fill paths.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="control-surface">
 <h2>Control Surface<a class="headerlink" href="#control-surface" title="Link to this heading">¶</a></h2>
-<p>The controller chooses actions for:</p>
-<ul class="simple">
-<li><p>pointer movement</p></li>
-<li><p>whether filling is active</p></li>
-<li><p>optional spread-width changes through sigma control actions</p></li>
-</ul>
-<p>Typical action sets include movement in cardinal or diagonal directions plus a toggle action.</p>
+<p>The controller moves the pointer, toggles filling and optionally changes spread width. Action sets can include cardinal or diagonal movement.</p>
 </section>
 <section id="default-action-set">
 <h2>Default Action Set<a class="headerlink" href="#default-action-set" title="Link to this heading">¶</a></h2>
@@ -421,13 +414,7 @@ migration between the environments.</p>
 </section>
 <section id="observation-structure">
 <h2>Observation Structure<a class="headerlink" href="#observation-structure" title="Link to this heading">¶</a></h2>
-<p>FFFLite observations are built around the current grid state and pointer state.</p>
-<p>Depending on configuration, they can include:</p>
-<ul class="simple">
-<li><p>tensor-like spatial state</p></li>
-<li><p>vector features for pointer state or auxiliary values</p></li>
-</ul>
-<p>By default, FFFLite exposes three state channels:</p>
+<p>Observations can include spatial state and pointer or auxiliary features. The default spatial channels are:</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -547,13 +534,7 @@ migration between the environments.</p>
 </section>
 <section id="when-to-use-it">
 <h2>When To Use It<a class="headerlink" href="#when-to-use-it" title="Link to this heading">¶</a></h2>
-<p>FFFLite is a good fit when you want:</p>
-<ul class="simple">
-<li><p>a fast built-in environment</p></li>
-<li><p>discrete action-space experiments</p></li>
-<li><p>simple rollout generation</p></li>
-<li><p>algorithm smoke tests that are closer to the real project than CartPole</p></li>
-</ul>
+<p>Use V0 to replay or compare historical grid-fill controls and artifacts.</p>
 </section>
 <section id="minimal-example">
 <h2>Minimal Example<a class="headerlink" href="#minimal-example" title="Link to this heading">¶</a></h2>
@@ -637,7 +618,7 @@ ctrlp<span class="w"> </span>experiments/lite/fff/runs/depo_medium/ppo/smoke/run
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

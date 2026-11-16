@@ -340,12 +340,10 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="modes">
 <h1>Modes<a class="headerlink" href="#modes" title="Link to this heading">¶</a></h1>
-<p>This page describes what each runtime mode does, when to use it, and whether it writes files.</p>
-<p>For the short command surface, use <a class="reference internal" href="../command-guide.html"><span class="std std-doc">Command Guide</span></a>. For config layout, use <a class="reference internal" href="config.html"><span class="std std-doc">Runtime Configuration</span></a>. For all CLI inputs and per-mode config fields, use <a class="reference internal" href="mode-inputs.html"><span class="std std-doc">Mode Inputs</span></a>. For the Python entry points behind these modes, use <a class="reference internal" href="../reference/runtime_api.html"><span class="std std-doc">Runtime API</span></a>.</p>
+<p>This page describes each mode and its outputs. See the <a class="reference internal" href="../command-guide.html"><span class="std std-doc">Command Guide</span></a>, <a class="reference internal" href="config.html"><span class="std std-doc">Runtime Configuration</span></a>, <a class="reference internal" href="mode-inputs.html"><span class="std std-doc">Mode Inputs</span></a> and <a class="reference internal" href="../reference/runtime_api.html"><span class="std std-doc">Runtime API</span></a> for details.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The user-facing term is <code class="docutils literal notranslate"><span class="pre">mode</span></code>, because the CLI entry point is <code class="docutils literal notranslate"><span class="pre">ctrlp</span> <span class="pre">...</span> <span class="pre">--mode</span> <span class="pre">&lt;name&gt;</span></code>.</p>
-<p>The experiment selector <code class="docutils literal notranslate"><span class="pre">task</span></code> still exists separately in paths such as <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml</span></code>.</p>
+<p>The CLI <code class="docutils literal notranslate"><span class="pre">--mode</span></code> selects an operation. The <code class="docutils literal notranslate"><span class="pre">task</span></code> in <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml</span></code> selects the experiment task.</p>
 </div>
 <section id="mode-matrix">
 <h2>Mode Matrix<a class="headerlink" href="#mode-matrix" title="Link to this heading">¶</a></h2>
@@ -452,7 +450,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">runtime.inference.checkpoint</span></code> selects the checkpoint file loaded from the agent directory. It defaults to <code class="docutils literal notranslate"><span class="pre">best_model.zip</span></code>; <code class="docutils literal notranslate"><span class="pre">runtime.eval.checkpoint</span></code> is still accepted as an eval-only fallback.</p>
 <section id="eval-variants">
 <h4>Eval variants<a class="headerlink" href="#eval-variants" title="Link to this heading">¶</a></h4>
-<p>The evaluation task can expand <code class="docutils literal notranslate"><span class="pre">eval.variants</span></code> into a small sweep of evaluation-time changes. Each variant is normalized into its own labeled output folder under the agent <code class="docutils literal notranslate"><span class="pre">eval/</span></code> directory, and the combined CSV outputs include variant columns so you can compare them later.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eval.variants</span></code> expands evaluation-time changes into labeled folders under the agent’s <code class="docutils literal notranslate"><span class="pre">eval/</span></code> directory. Combined CSVs include variant columns for comparison.</p>
 <p>Typical use cases:</p>
 <ul class="simple">
 <li><p>compare different <code class="docutils literal notranslate"><span class="pre">vec.max_steps</span></code> values</p></li>
@@ -497,13 +495,12 @@ cooling/dwell, reset, and viewer controls stay one-shot.</p>
 </section>
 <section id="what-has-no-dedicated-runtime-block">
 <h2>What Has No Dedicated Runtime Block<a class="headerlink" href="#what-has-no-dedicated-runtime-block" title="Link to this heading">¶</a></h2>
-<p>These are valid modes even though they do not have matching <code class="docutils literal notranslate"><span class="pre">runtime.&lt;mode&gt;</span></code> keys:</p>
+<p>These modes do not have matching <code class="docutils literal notranslate"><span class="pre">runtime.&lt;mode&gt;</span></code> keys:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">resolve</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">check</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">demo</span></code></p></li>
 </ul>
-<p>If you add <code class="docutils literal notranslate"><span class="pre">runtime.resolve</span></code> or <code class="docutils literal notranslate"><span class="pre">runtime.check</span></code> today, run-config validation will reject them.</p>
+<p>Run-config validation rejects <code class="docutils literal notranslate"><span class="pre">runtime.resolve</span></code> and <code class="docutils literal notranslate"><span class="pre">runtime.check</span></code>. <code class="docutils literal notranslate"><span class="pre">runtime.demo</span></code> is optional and controls the demo launcher.</p>
 </section>
 <section id="read-next">
 <h2>Read Next<a class="headerlink" href="#read-next" title="Link to this heading">¶</a></h2>
@@ -515,10 +512,9 @@ cooling/dwell, reset, and viewer controls stay one-shot.</p>
 </section>
 <section id="smoke-tests">
 <h2>Smoke Tests<a class="headerlink" href="#smoke-tests" title="Link to this heading">¶</a></h2>
-<p>Use the smoke helper when you only want structural validation:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tests/smoke/run_smoke.sh<span class="w"> </span>lite/fff
-tests/smoke/run_smoke.sh<span class="w"> </span>lite/pbf
-tests/smoke/run_smoke.sh<span class="w"> </span>all
+<p>Resolve and check a maintained smoke control for structural validation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>experiments/lite/pbf-v2/runs/thermo_small/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
+ctrlp<span class="w"> </span>experiments/lite/pbf-v2/runs/thermo_small/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>check
 </pre></div>
 </div>
 <div class="admonition note">
@@ -574,7 +570,7 @@ tests/smoke/run_smoke.sh<span class="w"> </span>all
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

@@ -340,8 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="rl-parameter-effects">
 <h1>RL Parameter Effects<a class="headerlink" href="#rl-parameter-effects" title="Link to this heading">¶</a></h1>
-<p>This page is a compact reference for interpreting RL experiments in CTRL-P. It is meant for humans and agents that need to decide what to try next after reading run summaries, evaluation results, and traces.</p>
-<p>The main rule is simple: change one meaningful thing at a time, then check whether the result survives fixed evaluation and more than one seed.</p>
+<p>Use this reference to interpret run summaries, evaluations and traces. Change one meaningful factor at a time, then compare with fixed evaluation across seeds.</p>
 <section id="the-four-control-surfaces">
 <h2>The Four Control Surfaces<a class="headerlink" href="#the-four-control-surfaces" title="Link to this heading">¶</a></h2>
 <p>Most RL results are shaped by four interacting surfaces:</p>
@@ -601,7 +600,7 @@
 </section>
 <section id="next-run-decision-rules">
 <h2>Next-Run Decision Rules<a class="headerlink" href="#next-run-decision-rules" title="Link to this heading">¶</a></h2>
-<p>Use these rules before editing <code class="docutils literal notranslate"><span class="pre">batch.yml</span></code>:</p>
+<p>Use these rules before changing a run:</p>
 <ul class="simple">
 <li><p>if the run failed before training started, debug setup, not hyperparameters</p></li>
 <li><p>if reward is flat, inspect environment/reward/observation before broad tuning</p></li>
@@ -682,7 +681,7 @@
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

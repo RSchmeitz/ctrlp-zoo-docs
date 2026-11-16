@@ -345,10 +345,8 @@ path parts, for example <code class="docutils literal notranslate"><span class="
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>experiments/&lt;env...&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml
 </pre></div>
 </div>
-<p>The run config is the startable entrypoint for a run. The folder path selects the task, algorithm, and run name; the YAML carries the experiment manifest, including <code class="docutils literal notranslate"><span class="pre">select</span></code> and <code class="docutils literal notranslate"><span class="pre">runtime</span></code>.</p>
-<p>CTRL-P also writes a compact run config to <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env...&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml</span></code> and a frozen resolved snapshot to <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> in the same folder. Treat <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> as generated output, not as a working copy to edit by hand.</p>
-<p>Replay-oriented modes such as <code class="docutils literal notranslate"><span class="pre">eval</span></code>, <code class="docutils literal notranslate"><span class="pre">demo</span></code>, and <code class="docutils literal notranslate"><span class="pre">rollout</span></code> prefer the run snapshot when it exists so they match the trained setup. Fresh execution modes such as <code class="docutils literal notranslate"><span class="pre">resolve</span></code>, <code class="docutils literal notranslate"><span class="pre">check</span></code>, <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">pretrain</span></code>, and <code class="docutils literal notranslate"><span class="pre">hpo</span></code> use the editable source files. <code class="docutils literal notranslate"><span class="pre">demo</span></code> uses the built-in live default, so no dedicated config stanza is needed. On headless sessions without a GUI display, CTRL-P falls back to scripted playback automatically.</p>
-<p>The default run config also carries the <code class="docutils literal notranslate"><span class="pre">runtime.hpo</span></code> block inline, so HPO uses the same entrypoint rather than a separate file. The HPO search space itself lives in <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env...&gt;/presets/hpo/&lt;algo&gt;.yml</span></code>.</p>
+<p>The path selects the task, algorithm and run; <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> supplies the manifest and runtime settings. <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> in the same folder is a generated snapshot, not an editable source file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eval</span></code>, <code class="docutils literal notranslate"><span class="pre">demo</span></code> and <code class="docutils literal notranslate"><span class="pre">rollout</span></code> prefer the snapshot when available. <code class="docutils literal notranslate"><span class="pre">resolve</span></code>, <code class="docutils literal notranslate"><span class="pre">check</span></code>, <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">pretrain</span></code> and <code class="docutils literal notranslate"><span class="pre">hpo</span></code> use editable sources. Demo defaults to live playback and falls back to scripted playback without a display. HPO reads its search space from <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env...&gt;/presets/hpo/&lt;algo&gt;.yml</span></code>.</p>
 <p>For the exact per-mode inputs, use <a class="reference internal" href="mode-inputs.html"><span class="std std-doc">Mode Inputs</span></a>. For the Python modules behind config resolution, use <a class="reference internal" href="../reference/runtime_api.html"><span class="std std-doc">Runtime API</span></a>.</p>
 <section id="run-config-schema">
 <h2>Run Config Schema<a class="headerlink" href="#run-config-schema" title="Link to this heading">¶</a></h2>
@@ -410,12 +408,12 @@ path parts, for example <code class="docutils literal notranslate"><span class="
 </section>
 <section id="source-vs-snapshot">
 <h2>Source Vs Snapshot<a class="headerlink" href="#source-vs-snapshot" title="Link to this heading">¶</a></h2>
-<p>Use the editable workspace files when you want to create or change a run:</p>
+<p>Create or change runs in:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/&lt;env...&gt;/runs/...</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/&lt;env...&gt;/presets/...</span></code></p></li>
 </ul>
-<p>Use the run folder when you want to replay or inspect an existing run:</p>
+<p>Inspect or replay an existing run using:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/&lt;env...&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/&lt;env...&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/parameters.yml</span></code></p></li>
@@ -703,7 +701,7 @@ state is not checkpointed and continuation is therefore not bit-exact.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

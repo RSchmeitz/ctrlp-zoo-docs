@@ -346,34 +346,23 @@
 </div>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>PBFLite is a built-in environment that models a simplified thermal printing process. It is more physically structured than FFFLite and is intended for experiments where coverage quality and thermal behavior both matter.</p>
-<p>Compared with FFFLite, PBFLite keeps the same grid-runtime shape but swaps in a thermal finite-element model and exposes extra physics signals in the <code class="docutils literal notranslate"><span class="pre">info</span></code> dictionary.</p>
+<p>PBFLite V0 models a simplified thermal printing process. It uses a grid interface with a thermal finite-element model and exposes physics signals in <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
 <p><img alt="PBFLite Environment" src="../../_images/PBF.svg" /></p>
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../../_images/lite-pbf-paths.svg"><img alt="PBFLite path variants imported from the project figure deck and wrapped as an SVG panel." src="../../_images/lite-pbf-paths.svg" style="width: 78%;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Path illustration from the project figure deck, now wrapped as an SVG panel so it stays readable in both light and dark themes.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Example process paths.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="what-makes-it-different">
 <h2>What Makes It Different<a class="headerlink" href="#what-makes-it-different" title="Link to this heading">¶</a></h2>
-<p>Compared with FFFLite, PBFLite places more emphasis on:</p>
-<ul class="simple">
-<li><p>process state</p></li>
-<li><p>thermal field behavior</p></li>
-<li><p>precision relative to a target mask</p></li>
-<li><p>environment-specific metrics such as <code class="docutils literal notranslate"><span class="pre">physics</span></code></p></li>
-</ul>
+<p>Compared with FFFLite, PBFLite includes thermal fields and process metrics such as <code class="docutils literal notranslate"><span class="pre">physics</span></code>.</p>
 </section>
 <section id="control-surface">
 <h2>Control Surface<a class="headerlink" href="#control-surface" title="Link to this heading">¶</a></h2>
-<p>The controller typically chooses actions for:</p>
-<ul class="simple">
-<li><p>movement of the process head</p></li>
-<li><p>activation or deactivation of the heat source</p></li>
-</ul>
+<p>The controller moves the process head and toggles the heat source.</p>
 </section>
 <section id="default-action-set">
 <h2>Default Action Set<a class="headerlink" href="#default-action-set" title="Link to this heading">¶</a></h2>
@@ -556,12 +545,7 @@
 </section>
 <section id="when-to-use-it">
 <h2>When To Use It<a class="headerlink" href="#when-to-use-it" title="Link to this heading">¶</a></h2>
-<p>Use PBFLite when you care about:</p>
-<ul class="simple">
-<li><p>a richer built-in task than FFFLite</p></li>
-<li><p>process-oriented additive-manufacturing behavior</p></li>
-<li><p>evaluation metrics beyond plain episodic reward</p></li>
-</ul>
+<p>Use V0 to replay or compare historical thermal controls and artifacts.</p>
 </section>
 <section id="minimal-example">
 <h2>Minimal Example<a class="headerlink" href="#minimal-example" title="Link to this heading">¶</a></h2>
@@ -645,7 +629,7 @@ smoke. Inspect its training budget before running <code class="docutils literal 
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

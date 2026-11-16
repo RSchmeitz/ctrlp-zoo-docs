@@ -340,7 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="experiment-design">
 <h1>Experiment Design<a class="headerlink" href="#experiment-design" title="Link to this heading">¶</a></h1>
-<p>Running RL well is not just about launching <code class="docutils literal notranslate"><span class="pre">train</span></code>. It is about choosing a sensible setup, controlling stochasticity, and measuring outcomes in a way that can be trusted.</p>
+<p>Reliable RL experiments need a clear setup, controlled randomness and comparable measurements.</p>
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../../_images/rl-experiment-cycle.svg"><img alt="Experiment cycle showing config, validation, training, evaluation, and artifact review." src="../../_images/rl-experiment-cycle.svg" style="width: 92%;" />
 </a>
@@ -359,7 +359,7 @@
 <li><p>evaluate with fixed settings and comparable metrics</p></li>
 <li><p>inspect artifacts, seeds, and failure cases before drawing conclusions</p></li>
 </ol>
-<p>That order matters because many experiment mistakes are not algorithm mistakes. They are setup mistakes, evaluation mistakes, or comparison mistakes.</p>
+<p>This order catches setup errors before they affect a comparison.</p>
 </section>
 <section id="what-you-are-actually-optimizing">
 <h2>What You Are Actually Optimizing<a class="headerlink" href="#what-you-are-actually-optimizing" title="Link to this heading">¶</a></h2>
@@ -370,8 +370,7 @@
 J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t=0}^{T-1} \gamma^t r_{t+1}\right]
 \]</div>
 </div>
-<p>but a good experiment is not the same thing as a high return on one run.</p>
-<p>A good experiment also needs:</p>
+<p>One high-return run is not enough. A comparison also needs:</p>
 <ul class="simple">
 <li><p>controlled seeds</p></li>
 <li><p>a clear task definition</p></li>
@@ -408,8 +407,7 @@ J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t=0}^{T-1} \gamma^t r_{t+1}\right
 </tbody>
 </table>
 </div>
-<p>This block answers the most basic question: what exactly are you comparing?</p>
-<p>If this part is vague, the rest of the experiment will also be vague. Before changing timesteps, reward weights, or wrappers, make sure you can describe the task, the algorithm family, and the comparison goal in one or two sentences.</p>
+<p>Before tuning, describe the task, algorithm family and comparison goal.</p>
 </section>
 <section id="reproducibility-and-comparison-setup">
 <h3>2. Reproducibility and comparison setup<a class="headerlink" href="#reproducibility-and-comparison-setup" title="Link to this heading">¶</a></h3>
@@ -436,8 +434,7 @@ J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t=0}^{T-1} \gamma^t r_{t+1}\right
 </tbody>
 </table>
 </div>
-<p>If the split or seed policy changes across runs, the comparison is already weak before training even starts.</p>
-<p>This is one of the easiest places to make accidental mistakes. Many apparent improvements disappear once the same method is tested across more seeds or across a cleaner train/val/test split.</p>
+<p>Keep seed and split policies comparable: apparent improvements can disappear across seeds or on held-out scenarios.</p>
 </section>
 <section id="training-scale">
 <h3>3. Training scale<a class="headerlink" href="#training-scale" title="Link to this heading">¶</a></h3>
@@ -467,8 +464,7 @@ J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t=0}^{T-1} \gamma^t r_{t+1}\right
 </tbody>
 </table>
 </div>
-<p>These settings shape how much evidence you collect during training.</p>
-<p>They also shape how expensive the experiment becomes. A very small run may be enough for a smoke test, but not enough to support a serious research conclusion. It helps to say explicitly whether a run is a structural check or a real experiment.</p>
+<p>These settings determine both the evidence collected and the cost. Label a small structural check accordingly; it cannot support a research conclusion on its own.</p>
 </section>
 <section id="observation-and-reward-processing">
 <h3>4. Observation and reward processing<a class="headerlink" href="#observation-and-reward-processing" title="Link to this heading">¶</a></h3>
@@ -501,8 +497,7 @@ J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t=0}^{T-1} \gamma^t r_{t+1}\right
 </tbody>
 </table>
 </div>
-<p>These settings are powerful, but they can also make comparisons unfair if one run sees a meaningfully different observation surface than another.</p>
-<p>That is why it helps to treat reward shaping, normalization, frame stacking, and observation editing as explicit design decisions rather than as harmless technical details. Even small changes here can alter what the learner sees and how difficult the task becomes.</p>
+<p>Record these choices: they can change the task difficulty or what the learner sees, making runs harder to compare.</p>
 </section>
 <section id="evaluation-quality">
 <h3>5. Evaluation quality<a class="headerlink" href="#evaluation-quality" title="Link to this heading">¶</a></h3>
@@ -532,13 +527,12 @@ J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t=0}^{T-1} \gamma^t r_{t+1}\right
 </tbody>
 </table>
 </div>
-<p>Evaluation is not a small post-processing step. It is part of the experiment design.</p>
-<p>In practice, this means you should decide early what counts as success. If one run is judged by reward only and another by success rate or constraint violations, the results will be hard to interpret even if both runs completed correctly.</p>
+<p>Decide early what counts as success, and use comparable metrics across runs.</p>
 </section>
 </section>
 <section id="if-you-use-datasets-or-behavior-cloning">
 <h2>If You Use Datasets Or Behavior Cloning<a class="headerlink" href="#if-you-use-datasets-or-behavior-cloning" title="Link to this heading">¶</a></h2>
-<p>CTRL-P also supports dataset-driven workflows, so experiment design does not stop at online RL.</p>
+<p>For dataset-driven workflows, record these choices:</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -572,7 +566,7 @@ J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t=0}^{T-1} \gamma^t r_{t+1}\right
 <li><p>does the dataset preserve the raw signals needed for preprocessing?</p></li>
 <li><p>are imitation errors caused by weak data coverage rather than model capacity?</p></li>
 </ul>
-<p>This deserves separate attention because offline workflows can fail for reasons that do not appear in online RL. A poor dataset can make a good model look weak, while a very narrow dataset can make a weak model look better than it really is.</p>
+<p>A weak or narrow dataset can distort the apparent quality of a model.</p>
 </section>
 <section id="how-to-read-results-well">
 <h2>How To Read Results Well<a class="headerlink" href="#how-to-read-results-well" title="Link to this heading">¶</a></h2>
@@ -596,8 +590,7 @@ SE = \frac{s}{\sqrt{n}}
 <li><p>behavior during demos or rollouts</p></li>
 <li><p>dataset quality if using offline workflows</p></li>
 </ul>
-<p>The key habit is simple: do not trust a run until you have looked at both the numbers and the artifacts.</p>
-<p>This is especially important in CTRL-P-style projects, where visual behavior, scenario-specific failures, and rollout traces often reveal problems that a single summary score hides.</p>
+<p>Inspect both numbers and artifacts: visual behavior and scenario-specific failures can reveal what a summary score hides.</p>
 </section>
 <section id="common-failure-modes">
 <h2>Common Failure Modes<a class="headerlink" href="#common-failure-modes" title="Link to this heading">¶</a></h2>
@@ -612,21 +605,19 @@ SE = \frac{s}{\sqrt{n}}
 <li><p>training behavior cloning on weak or inconsistent demonstrations</p></li>
 <li><p>forgetting that normalization and frame stacking can change what the learner sees</p></li>
 </ul>
-<p>Most of these problems are avoidable if the experiment is kept narrow at first. Start with one clear baseline, one change at a time, and one evaluation setup that stays fixed while you compare methods.</p>
+<p>Start with a clear baseline, a focused change and fixed evaluation settings.</p>
 </section>
 <section id="advanced-topics-in-ctrl-p">
 <h2>Advanced Topics In CTRL-P<a class="headerlink" href="#advanced-topics-in-ctrl-p" title="Link to this heading">¶</a></h2>
-<p>These topics matter once the basic experiment loop is already solid.</p>
+<p>After establishing the basic loop, consider these questions.</p>
 <section id="procgen-aware-evaluation">
 <h3>ProcGen-aware evaluation<a class="headerlink" href="#procgen-aware-evaluation" title="Link to this heading">¶</a></h3>
-<p>When built-in environments use ProcGen, evaluation is not only about replaying the same policy on the same task name.</p>
-<p>You also need to ask:</p>
+<p>For ProcGen, ask:</p>
 <ul class="simple">
 <li><p>which scenario generator was used</p></li>
 <li><p>whether train, val, and test scenarios differ</p></li>
 <li><p>whether a model is robust to scenario changes or only memorizes one distribution</p></li>
 </ul>
-<p>That is why ProcGen belongs in experiment design, not only in file layout documentation.</p>
 </section>
 <section id="behavior-cloning-as-a-research-baseline">
 <h3>Behavior cloning as a research baseline<a class="headerlink" href="#behavior-cloning-as-a-research-baseline" title="Link to this heading">¶</a></h3>
@@ -645,8 +636,7 @@ SE = \frac{s}{\sqrt{n}}
 </section>
 <section id="fair-comparisons-across-algorithm-families">
 <h3>Fair comparisons across algorithm families<a class="headerlink" href="#fair-comparisons-across-algorithm-families" title="Link to this heading">¶</a></h3>
-<p>CTRL-P makes it easy to compare heuristics, RL, and imitation methods under the same runtime.</p>
-<p>That is powerful, but only if the comparison is fair. In practice, fairness usually means:</p>
+<p>Compare heuristics, RL and imitation methods using:</p>
 <ul class="simple">
 <li><p>same environment and task definition</p></li>
 <li><p>same or clearly justified scenario split</p></li>
@@ -657,12 +647,10 @@ SE = \frac{s}{\sqrt{n}}
 </section>
 <section id="why-ctrl-p-uses-resolve-and-check">
 <h2>Why CTRL-P Uses <code class="docutils literal notranslate"><span class="pre">resolve</span></code> And <code class="docutils literal notranslate"><span class="pre">check</span></code><a class="headerlink" href="#why-ctrl-p-uses-resolve-and-check" title="Link to this heading">¶</a></h2>
-<p>These tasks exist because many experiment failures are avoidable configuration failures.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">resolve</span></code> helps you inspect the merged configuration before spending compute</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">check</span></code> confirms that the environment and model can actually be built</p></li>
 </ul>
-<p>That makes the experiment loop safer, faster to debug, and easier to teach.</p>
 </section>
 <section id="read-next">
 <h2>Read Next<a class="headerlink" href="#read-next" title="Link to this heading">¶</a></h2>
@@ -722,7 +710,7 @@ SE = \frac{s}{\sqrt{n}}
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

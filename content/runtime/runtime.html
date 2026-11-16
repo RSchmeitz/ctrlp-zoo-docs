@@ -340,14 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="runtime">
 <h1>Runtime<a class="headerlink" href="#runtime" title="Link to this heading">¶</a></h1>
-<p>This section covers the operational side of CTRL-P once your config and environment choices are already clear.</p>
-<p>Use it when you want to:</p>
-<ul class="simple">
-<li><p>understand what each runtime mode does</p></li>
-<li><p>inspect runtime-facing configuration fields</p></li>
-<li><p>run or interpret hyperparameter optimization</p></li>
-<li><p>look up the Python runtime surface behind the CLI</p></li>
-</ul>
+<p>This reference covers runtime modes, configuration, hyperparameter optimization and the Python API.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are looking for the first-user path, start with <a class="reference internal" href="../experiments.html"><span class="std std-doc">Experiments</span></a>.
@@ -355,13 +348,7 @@ This section is the more detailed runtime reference behind that overview.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The user-facing CLI now uses the term <code class="docutils literal notranslate"><span class="pre">mode</span></code>, for example <code class="docutils literal notranslate"><span class="pre">--mode</span> <span class="pre">train</span></code>.</p>
-<p>The experiment selector <code class="docutils literal notranslate"><span class="pre">task</span></code> still exists in config paths such as <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml</span></code>.
-Those are different concepts:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">task</span></code>: which environment variant you are running</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: which runtime operation you want CTRL-P to execute</p></li>
-</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">task</span></code> in <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml</span></code> selects an environment variant. The CLI <code class="docutils literal notranslate"><span class="pre">--mode</span></code>, such as <code class="docutils literal notranslate"><span class="pre">train</span></code>, selects an operation.</p>
 </div>
 <p>For the Python modules behind this section, see:</p>
 <ul class="simple">
@@ -425,7 +412,7 @@ Those are different concepts:</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

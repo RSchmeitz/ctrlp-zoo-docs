@@ -340,16 +340,8 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="manager">
 <h1>Manager<a class="headerlink" href="#manager" title="Link to this heading">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">AgentManager</span></code> is the runtime orchestrator of CTRL-P.</p>
+<p><code class="docutils literal notranslate"><span class="pre">AgentManager</span></code> resolves a run, constructs its environments and agent, dispatches the selected mode, and manages output paths.</p>
 <p><img alt="Manager runtime map" src="../_images/runtime-components.svg" /></p>
-<p>It is responsible for turning an env-root run config into:</p>
-<ul class="simple">
-<li><p>resolved paths</p></li>
-<li><p>merged parameters</p></li>
-<li><p>concrete environment instances</p></li>
-<li><p>concrete agent runs</p></li>
-<li><p>saved outputs</p></li>
-</ul>
 <section id="quick-view">
 <h2>Quick View<a class="headerlink" href="#quick-view" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-auto docutils container">
@@ -407,7 +399,7 @@
 <li><p>aggregate evaluation outputs</p></li>
 <li><p>manage rollout and pretraining paths</p></li>
 </ul>
-<p>When the manager is replaying an existing run, <code class="docutils literal notranslate"><span class="pre">eval</span></code>, <code class="docutils literal notranslate"><span class="pre">demo</span></code>, and <code class="docutils literal notranslate"><span class="pre">rollout</span></code> prefer the saved <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> snapshot. When it is creating or validating a run, <code class="docutils literal notranslate"><span class="pre">resolve</span></code>, <code class="docutils literal notranslate"><span class="pre">check</span></code>, <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">pretrain</span></code>, and <code class="docutils literal notranslate"><span class="pre">hpo</span></code> use the editable source files instead. HPO also reads the task-local search space from <code class="docutils literal notranslate"><span class="pre">presets/hpo/&lt;algo&gt;.yml</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eval</span></code>, <code class="docutils literal notranslate"><span class="pre">demo</span></code> and <code class="docutils literal notranslate"><span class="pre">rollout</span></code> prefer the saved <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> snapshot. <code class="docutils literal notranslate"><span class="pre">resolve</span></code>, <code class="docutils literal notranslate"><span class="pre">check</span></code>, <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">pretrain</span></code> and <code class="docutils literal notranslate"><span class="pre">hpo</span></code> use editable source files; HPO also reads <code class="docutils literal notranslate"><span class="pre">presets/hpo/&lt;algo&gt;.yml</span></code>.</p>
 </section>
 </section>
 <section id="mode-api">
@@ -478,8 +470,7 @@
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><code class="docutils literal notranslate"><span class="pre">resolve()</span></code> is intentionally side-effect free.</p>
-<p>It should not create run folders or data folders.</p>
+<p><code class="docutils literal notranslate"><span class="pre">resolve()</span></code> is side-effect free: it does not create run or data folders.</p>
 </div>
 </section>
 <section id="env-resolution">
@@ -513,16 +504,7 @@
 </section>
 <section id="procgen">
 <h2>ProcGen<a class="headerlink" href="#procgen" title="Link to this heading">¶</a></h2>
-<p>For built-in CTRL-P environments, the manager can resolve ProcGen input from:</p>
-<ul class="simple">
-<li><p>YAML config for parametric generation</p></li>
-<li><p>dataset files for dataset-driven scenarios</p></li>
-</ul>
-<p>It also supports:</p>
-<ul class="simple">
-<li><p>mode-specific train/val/test ProcGen settings</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rollout.mode:</span> <span class="pre">procgen</span></code> for scenario materialization</p></li>
-</ul>
+<p>For built-in environments, ProcGen accepts YAML for parametric generation or dataset files for scenarios. Settings can differ for train, validation and test; <code class="docutils literal notranslate"><span class="pre">rollout.mode:</span> <span class="pre">procgen</span></code> materializes scenarios.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Generic Gymnasium environments do not support the built-in ProcGen flow. They can still use standard rollout datasets.</p>
@@ -530,9 +512,7 @@
 </section>
 <section id="sweeps">
 <h2>Sweeps<a class="headerlink" href="#sweeps" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">sweep</span></code> block defines one or more sweep dimensions.</p>
-<p>The manager expands the cartesian product and creates one concrete run per combination.</p>
-<p>Typical example:</p>
+<p>The manager expands the Cartesian product of <code class="docutils literal notranslate"><span class="pre">sweep</span></code> dimensions into concrete runs. For example:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">runtime</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sweep</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">]</span>
@@ -541,13 +521,7 @@
 </section>
 <section id="mental-model">
 <h2>Mental Model<a class="headerlink" href="#mental-model" title="Link to this heading">¶</a></h2>
-<p>If you are reading the code for the first time, treat the manager as the bridge between:</p>
-<ul class="simple">
-<li><p>static config files</p></li>
-<li><p>runtime env/model construction</p></li>
-<li><p>generated output folders</p></li>
-</ul>
-<p>It should contain orchestration logic, not environment logic and not algorithm internals.</p>
+<p>The manager connects configuration, environment/model construction and outputs. It owns orchestration, while environments and algorithms own their respective logic.</p>
 </section>
 <section id="read-next">
 <h2>Read Next<a class="headerlink" href="#read-next" title="Link to this heading">¶</a></h2>
@@ -605,7 +579,7 @@
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

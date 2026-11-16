@@ -340,8 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="hpo">
 <h1>HPO<a class="headerlink" href="#hpo" title="Link to this heading">¶</a></h1>
-<p>CTRL-P uses Optuna for hyperparameter optimization through the <code class="docutils literal notranslate"><span class="pre">hpo</span></code> mode.</p>
-<p>Use <a class="reference internal" href="runtime/config.html"><span class="std std-doc">Runtime Configuration</span></a> for the surrounding config layout, <a class="reference internal" href="runtime/mode-inputs.html"><span class="std std-doc">Mode Inputs</span></a> for the full <code class="docutils literal notranslate"><span class="pre">--mode</span></code> surface, and this page for the HPO-specific controls.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">hpo</span></code> mode uses Optuna to search hyperparameters. See <a class="reference internal" href="runtime/config.html"><span class="std std-doc">Runtime Configuration</span></a> and <a class="reference internal" href="runtime/mode-inputs.html"><span class="std std-doc">Mode Inputs</span></a> for the surrounding configuration.</p>
 <section id="what-hpo-does">
 <h2>What HPO Does<a class="headerlink" href="#what-hpo-does" title="Link to this heading">¶</a></h2>
 <p>The HPO flow:</p>
@@ -357,7 +356,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>experiments/lite/fff/runs/depo_small/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span>hpo
 </pre></div>
 </div>
-<p>The HPO settings live inside <code class="docutils literal notranslate"><span class="pre">runtime.hpo</span></code> in the default run config for the task. HPO reuses the same <code class="docutils literal notranslate"><span class="pre">runs/&lt;task&gt;/&lt;algo&gt;/default/run.yml</span></code> entrypoint as training and reads the editable source presets rather than an existing run snapshot. The search space itself lives in <code class="docutils literal notranslate"><span class="pre">presets/hpo/&lt;algo&gt;.yml</span></code>.</p>
+<p>HPO reads <code class="docutils literal notranslate"><span class="pre">runtime.hpo</span></code> from the run config and its search space from <code class="docutils literal notranslate"><span class="pre">presets/hpo/&lt;algo&gt;.yml</span></code>. It uses editable source presets rather than a saved snapshot.</p>
 </section>
 <section id="minimal-config-example">
 <h2>Minimal Config Example<a class="headerlink" href="#minimal-config-example" title="Link to this heading">¶</a></h2>
@@ -440,7 +439,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">best_trial.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">study_summary.yml</span></code></p></li>
 </ul>
-<p>CTRL-P also writes a generated <code class="docutils literal notranslate"><span class="pre">runs/&lt;task&gt;/&lt;algo&gt;/best/run.yml</span></code> file so you can train the best trial directly without copying values by hand.</p>
+<p>CTRL-P also generates <code class="docutils literal notranslate"><span class="pre">runs/&lt;task&gt;/&lt;algo&gt;/best/run.yml</span></code> for training the selected trial.</p>
 </section>
 <section id="objective-semantics">
 <h2>Objective Semantics<a class="headerlink" href="#objective-semantics" title="Link to this heading">¶</a></h2>
@@ -537,7 +536,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">hpo.constraints</span></code> can derive one parameter from others through simple expressions</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hpo.constants</span></code> should be rare and only pin values that are genuinely HPO-specific; if a value already lives in the default baseline, keep it there instead of repeating it here</p></li>
 </ul>
-<p>The HPO search space lives in the dedicated task-local HPO file and is sourced separately from the frozen run snapshot. The snapshot is not the normal place to change an HPO search space.</p>
+<p>Edit the task-local HPO file to change the search space.</p>
 <p>For behavior cloning (<code class="docutils literal notranslate"><span class="pre">algo:</span> <span class="pre">bc</span></code>), HPO requires validation datasets to exist and expects a <code class="docutils literal notranslate"><span class="pre">val</span></code> split.</p>
 </section>
 <section id="practical-advice">
@@ -618,7 +617,7 @@
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

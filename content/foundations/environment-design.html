@@ -340,7 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="environment-design">
 <h1>Environment Design<a class="headerlink" href="#environment-design" title="Link to this heading">¶</a></h1>
-<p>An RL environment is more than a simulator. It is the interface that defines what the learning problem looks like.</p>
+<p>An RL environment defines the agent’s learning problem and its interface to the simulator.</p>
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../../_images/rl-environment-design.svg"><img alt="Diagram showing how state, observation, action, reward, and episode horizon shape an RL environment." src="../../_images/rl-environment-design.svg" style="width: 92%;" />
 </a>
@@ -415,34 +415,23 @@
 </section>
 <section id="separate-task-definition-from-wrapper-effects">
 <h3>Separate task definition from wrapper effects<a class="headerlink" href="#separate-task-definition-from-wrapper-effects" title="Link to this heading">¶</a></h3>
-<p>Frame stacking, normalization, observation modifiers, and monitor wrappers change how the agent sees or records the task.</p>
-<p>Those are important runtime decisions, but they should be thought of separately from the conceptual environment itself. Otherwise it becomes hard to tell whether an observed improvement came from a better policy or from a different observation pipeline.</p>
+<p>Keep changes to frame stacking, normalization and monitor wrappers distinct from task changes, so you can interpret their effects on a policy.</p>
 </section>
 </section>
 <section id="environment-outputs-beyond-reward">
 <h2>Environment Outputs Beyond Reward<a class="headerlink" href="#environment-outputs-beyond-reward" title="Link to this heading">¶</a></h2>
-<p>Beginners often think of an environment as something that returns only observation and reward. In practice, good research environments also expose structured extra information.</p>
-<p>Typical examples include:</p>
+<p>Research environments can also expose:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">is_success</span></code> or other task-completion flags</p></li>
 <li><p>diagnostic scores or constraint violations</p></li>
 <li><p>physics-side quantities</p></li>
 <li><p>rollout metadata for later dataset use</p></li>
 </ul>
-<p>These outputs matter because evaluation, plotting, and dataset preprocessing often depend on them.</p>
-<p>In other words, the environment does not only define how the agent learns. It also defines how researchers later interpret what happened.</p>
+<p>Evaluation, plotting and dataset preprocessing can use these outputs to interpret a run.</p>
 </section>
 <section id="procgen-as-part-of-environment-design">
 <h2>ProcGen As Part Of Environment Design<a class="headerlink" href="#procgen-as-part-of-environment-design" title="Link to this heading">¶</a></h2>
-<p>In CTRL-P, some built-in environments support procedural or scenario-based inputs through ProcGen.</p>
-<p>That means the environment design is not only:</p>
-<ul class="simple">
-<li><p>observation space</p></li>
-<li><p>action space</p></li>
-<li><p>reward</p></li>
-<li><p>horizon</p></li>
-</ul>
-<p>It is also:</p>
+<p>For supported built-in environments, ProcGen adds these design choices:</p>
 <ul class="simple">
 <li><p>which scenarios can be generated</p></li>
 <li><p>how train, val, and test distributions differ</p></li>
@@ -452,15 +441,13 @@
 </section>
 <section id="why-raw-rollout-capture-matters">
 <h2>Why Raw Rollout Capture Matters<a class="headerlink" href="#why-raw-rollout-capture-matters" title="Link to this heading">¶</a></h2>
-<p>Dataset-driven workflows need access to what actually happened before later wrappers change the data.</p>
-<p>That is why CTRL-P can capture:</p>
+<p>CTRL-P can capture these inputs before frame stacking or normalization:</p>
 <ul class="simple">
 <li><p>raw observations</p></li>
 <li><p>raw rewards</p></li>
 <li><p>episode-level rollout information</p></li>
 </ul>
-<p>before frame stacking or normalization are applied.</p>
-<p>This becomes important when:</p>
+<p>This is useful when:</p>
 <ul class="simple">
 <li><p>you train a behavior-cloning model</p></li>
 <li><p>you compare online RL against offline methods</p></li>
@@ -535,7 +522,7 @@
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

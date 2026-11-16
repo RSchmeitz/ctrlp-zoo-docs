@@ -340,8 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="design">
 <h1>Design<a class="headerlink" href="#design" title="Link to this heading">¶</a></h1>
-<p>This page captures the main design decisions behind CTRL-P.</p>
-<p>Use <a class="reference internal" href="project-layout.html"><span class="std std-doc">Project Layout</span></a> for the package and workspace layout, <a class="reference internal" href="manager.html"><span class="std std-doc">Manager</span></a> for resolution and execution ownership, and <a class="reference internal" href="environment-guide.html"><span class="std std-doc">Environment Guide</span></a> for the built-in versus Gymnasium split.</p>
+<p>This page explains CTRL-P’s main design decisions. See <a class="reference internal" href="project-layout.html"><span class="std std-doc">Project Layout</span></a>, <a class="reference internal" href="manager.html"><span class="std std-doc">Manager</span></a> and <a class="reference internal" href="environment-guide.html"><span class="std std-doc">Environment Guide</span></a> for details.</p>
 <p><img alt="CTRL-P runtime components" src="../_images/runtime-components.svg" /></p>
 <section id="at-a-glance">
 <h2>At a Glance<a class="headerlink" href="#at-a-glance" title="Link to this heading">¶</a></h2>
@@ -402,8 +401,7 @@
 <li><p>generated outputs in env-root <code class="docutils literal notranslate"><span class="pre">runs/</span></code> folders</p></li>
 <li><p>offline data in <code class="docutils literal notranslate"><span class="pre">data/</span></code></p></li>
 </ul>
-<p>This prevents the editable workspace from being polluted by run artifacts.</p>
-<p>When you want to replay an existing run, CTRL-P uses the frozen <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> snapshot under <code class="docutils literal notranslate"><span class="pre">runs/</span></code>; when you want a new run, it uses the editable source files in <code class="docutils literal notranslate"><span class="pre">presets/</span></code>.</p>
+<p>Replay modes prefer the frozen <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> snapshot when available; new runs use editable source files.</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -433,28 +431,12 @@
 </section>
 <section id="read-only-resolve">
 <h2>3. Read-Only Resolve<a class="headerlink" href="#read-only-resolve" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">resolve()</span></code> is read-only.</p>
-<p>Executable modes create folders only when needed.</p>
-<p>That matters because:</p>
-<ul class="simple">
-<li><p>it reduces accidental filesystem noise</p></li>
-<li><p>it keeps path behavior easier to reason about</p></li>
-<li><p>it makes <code class="docutils literal notranslate"><span class="pre">resolve</span></code> useful for debugging configuration issues</p></li>
-</ul>
+<p><code class="docutils literal notranslate"><span class="pre">resolve()</span></code> inspects configuration without writing files. Executable modes create folders when needed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">eval()</span></code>, <code class="docutils literal notranslate"><span class="pre">demo()</span></code>, and <code class="docutils literal notranslate"><span class="pre">rollout()</span></code> are replay-style modes: they prefer the saved run snapshot when one exists so their behavior matches the trained artifact.</p>
 </section>
 <section id="one-flow-for-built-in-and-gymnasium-environments">
 <h2>4. One Flow for Built-in and Gymnasium Environments<a class="headerlink" href="#one-flow-for-built-in-and-gymnasium-environments" title="Link to this heading">¶</a></h2>
-<p>CTRL-P supports:</p>
-<ul class="simple">
-<li><p>built-in environments with package-owned defaults</p></li>
-<li><p>generic Gymnasium environments through a single adapter path</p></li>
-</ul>
-<p>This means you can:</p>
-<ul class="simple">
-<li><p>work with research environments in a local workspace</p></li>
-<li><p>test the runtime on standard benchmarks without creating extra source folders</p></li>
-</ul>
+<p>CTRL-P supports built-in environments with package defaults and generic Gymnasium environments through an adapter.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Use built-in environments when you need CTRL-P-specific mechanics such as ProcGen or custom reward structure. Use Gym bootstrap when you want a fast runtime sanity check on a standard benchmark.</p>
@@ -462,8 +444,7 @@
 </section>
 <section id="native-procgen-flow">
 <h2>5. Native ProcGen Flow<a class="headerlink" href="#native-procgen-flow" title="Link to this heading">¶</a></h2>
-<p>For built-in CTRL-P environments, ProcGen is not treated as an afterthought.</p>
-<p>It is integrated into:</p>
+<p>For supported built-in environments, ProcGen handles:</p>
 <ul class="simple">
 <li><p>environment reset</p></li>
 <li><p>train/val/test scenario control</p></li>
@@ -477,8 +458,7 @@
 </section>
 <section id="native-sweeps">
 <h2>6. Native Sweeps<a class="headerlink" href="#native-sweeps" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">sweep:</span></code> is a native sweep mechanism, not an external script convention.</p>
-<p>Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sweep:</span></code> expands combinations within the runtime. For example:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">runtime</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sweep</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">]</span>
@@ -556,7 +536,7 @@
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

@@ -340,13 +340,10 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="mode-inputs">
 <h1>Mode Inputs<a class="headerlink" href="#mode-inputs" title="Link to this heading">¶</a></h1>
-<p>This page is the user-facing reference for the <code class="docutils literal notranslate"><span class="pre">--mode</span></code> flag.</p>
-<p>If you want the Python modules behind these behaviors, use <a class="reference internal" href="../reference/runtime_api.html"><span class="std std-doc">Runtime API</span></a> together with <a class="reference internal" href="../reference/learning_api.html"><span class="std std-doc">Learning API</span></a>.</p>
+<p>This page lists inputs and outputs for each <code class="docutils literal notranslate"><span class="pre">--mode</span></code>. For Python entry points, see the <a class="reference internal" href="../reference/runtime_api.html"><span class="std std-doc">Runtime API</span></a> and <a class="reference internal" href="../reference/learning_api.html"><span class="std std-doc">Learning API</span></a>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>CTRL-P uses <code class="docutils literal notranslate"><span class="pre">task</span></code> for the experiment selector, for example <code class="docutils literal notranslate"><span class="pre">depo_small</span></code>,
-<code class="docutils literal notranslate"><span class="pre">thermo_small</span></code>, or <code class="docutils literal notranslate"><span class="pre">default</span></code>; <code class="docutils literal notranslate"><span class="pre">dawn/pbf</span></code> is an environment control family.</p>
-<p>The CLI execution step is now called <code class="docutils literal notranslate"><span class="pre">mode</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">task</span></code> selects an experiment task such as <code class="docutils literal notranslate"><span class="pre">depo_small</span></code> or <code class="docutils literal notranslate"><span class="pre">thermo_small</span></code>; <code class="docutils literal notranslate"><span class="pre">mode</span></code> selects the CLI operation. <code class="docutils literal notranslate"><span class="pre">dawn/pbf</span></code> is an environment control family.</p>
 </div>
 <section id="cli-inputs">
 <h2>CLI Inputs<a class="headerlink" href="#cli-inputs" title="Link to this heading">¶</a></h2>
@@ -439,7 +436,7 @@
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">demo</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">Runner.demo()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">AgentManager.demo()</span></code></p></td>
-<td><p>none</p></td>
+<td><p>optional <code class="docutils literal notranslate"><span class="pre">runtime.demo</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>fixed 1 env, fixed seed 0</p></td>
 <td><p>interactive or headless demo</p></td>
@@ -479,6 +476,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">inference</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">train</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">eval</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">demo</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rollout</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pretrain</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hpo</span></code></p></li>
@@ -736,7 +734,7 @@ checkpoint evaluation.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

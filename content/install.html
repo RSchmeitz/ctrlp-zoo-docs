@@ -493,12 +493,11 @@ ctrlp<span class="w"> </span>experiments/cartpole-v1/runs/default/ppo/default/ru
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The CartPole example used in this install page is a local bootstrap example. Only its <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> is versioned; CTRL-P creates the presets under <code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/presets/</span></code> the first time you run it, and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> keeps them out of version control. Use it for installation checks and quick smoke tests; use <code class="docutils literal notranslate"><span class="pre">dawn</span></code>, <code class="docutils literal notranslate"><span class="pre">lite/fff</span></code>, or <code class="docutils literal notranslate"><span class="pre">lite/pbf</span></code> when you want the maintained in-repo experiment families.</p>
+<p>Only CartPole’s <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> is versioned. CTRL-P generates its presets locally and Git ignores them. For maintained experiment families, see <code class="docutils literal notranslate"><span class="pre">dawn</span></code>, <code class="docutils literal notranslate"><span class="pre">lite/fff</span></code> and <code class="docutils literal notranslate"><span class="pre">lite/pbf</span></code>.</p>
 </div>
 </section>
 <section id="optional-gpu-setup">
 <h2>Optional GPU Setup<a class="headerlink" href="#optional-gpu-setup" title="Link to this heading">¶</a></h2>
-<p>You do not need this for a normal first installation.</p>
 <p>Install a CUDA-enabled PyTorch build if you want GPU training on Linux or WSL.
 The standard requirements install the CPU build on Linux and Windows and the
 regular PyPI build on macOS.</p>
@@ -521,7 +520,6 @@ regular PyPI build on macOS.</p>
 </section>
 <section id="optional-jax-setup">
 <h2>Optional JAX Setup<a class="headerlink" href="#optional-jax-setup" title="Link to this heading">¶</a></h2>
-<p>You do not need this for a normal first installation.</p>
 <p>JAX support is available through the SBX backend on Linux or WSL.</p>
 <section id="id1">
 <h3>CPU-only<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
@@ -635,7 +633,7 @@ Windows. It does not affect the command result.</p>
 </section>
 <section id="after-installation">
 <h2>After Installation<a class="headerlink" href="#after-installation" title="Link to this heading">¶</a></h2>
-<p>Once the environment is working, the normal next steps are:</p>
+<p>Continue with:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="experiments.html"><span class="std std-doc">Experiments</span></a> for the first runtime path.</p></li>
 <li><p><a class="reference internal" href="command-guide.html"><span class="std std-doc">Command Guide</span></a> for fast task lookup.</p></li>
@@ -645,13 +643,7 @@ Windows. It does not affect the command result.</p>
 </section>
 <section id="read-next">
 <h2>Read Next<a class="headerlink" href="#read-next" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="experiments.html"><span class="std std-doc">Usage</span></a></p></li>
-<li><p><a class="reference internal" href="command-guide.html"><span class="std std-doc">Command Guide</span></a></p></li>
-<li><p><a class="reference internal" href="project-layout.html"><span class="std std-doc">Project Layout</span></a></p></li>
-<li><p><a class="reference internal" href="runtime/tasks.html"><span class="std std-doc">Runtime Modes</span></a></p></li>
-<li><p><a class="reference internal" href="environment-guide.html"><span class="std std-doc">Environment Guide</span></a></p></li>
-</ul>
+<p>For mode details, see <a class="reference internal" href="runtime/tasks.html"><span class="std std-doc">Runtime Modes</span></a>.</p>
 </section>
 </section>
 
@@ -701,7 +693,7 @@ Windows. It does not affect the command result.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

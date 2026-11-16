@@ -340,14 +340,9 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="agent">
 <h1>Agent<a class="headerlink" href="#agent" title="Link to this heading">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Agent</span></code> is the runtime-facing wrapper around the selected algorithm.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Agent</span></code> wraps the selected algorithm for training, loading, evaluation and demo.</p>
 <p><img alt="Agent runtime map" src="../_images/runtime-components.svg" /></p>
-<p>It sits between:</p>
-<ul class="simple">
-<li><p>the manager</p></li>
-<li><p>the vectorized environments</p></li>
-<li><p>the algorithm implementation</p></li>
-</ul>
+<p>It connects the manager, vectorized environments and algorithm implementation.</p>
 <section id="quick-view">
 <h2>Quick View<a class="headerlink" href="#quick-view" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-auto docutils container">
@@ -384,18 +379,13 @@
 <h2>Responsibilities<a class="headerlink" href="#responsibilities" title="Link to this heading">¶</a></h2>
 <section id="algorithm-setup">
 <h3>Algorithm setup<a class="headerlink" href="#algorithm-setup" title="Link to this heading">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">Agent</span></code> builds the configured algorithm through <code class="docutils literal notranslate"><span class="pre">set_algo(...)</span></code>.</p>
-<p>This includes:</p>
+<p><code class="docutils literal notranslate"><span class="pre">set_algo(...)</span></code> builds the configured algorithm by:</p>
 <ul class="simple">
 <li><p>selecting the backend implementation</p></li>
 <li><p>applying policy configuration</p></li>
 <li><p>wiring the env into the algorithm</p></li>
 <li><p>preparing logging and save paths</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">Agent</span></code> keeps the high-level runtime flow readable in one file. Lower-level demo helpers and utilities may live elsewhere, but the main lifecycle remains visible here.</p>
-</div>
 </section>
 <section id="training">
 <h3>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h3>
@@ -430,26 +420,12 @@
 </section>
 <section id="demo">
 <h3>Demo<a class="headerlink" href="#demo" title="Link to this heading">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">demo()</span></code> keeps the high-level runtime flow inside <code class="docutils literal notranslate"><span class="pre">Agent</span></code>, while the lower-level rendering and event-loop helpers live in <code class="docutils literal notranslate"><span class="pre">ctrlp.common.visualization.demo</span></code>.</p>
-<p>That split keeps the file readable without hiding the main runtime behavior.</p>
+<p><code class="docutils literal notranslate"><span class="pre">demo()</span></code> runs the high-level flow; rendering and event-loop helpers live in <code class="docutils literal notranslate"><span class="pre">ctrlp.common.visualization.demo</span></code>.</p>
 </section>
 </section>
 <section id="mental-model">
 <h2>Mental Model<a class="headerlink" href="#mental-model" title="Link to this heading">¶</a></h2>
-<p>Treat <code class="docutils literal notranslate"><span class="pre">Agent</span></code> as:</p>
-<ul class="simple">
-<li><p>algorithm lifecycle</p></li>
-<li><p>runtime callbacks</p></li>
-<li><p>checkpoint loading</p></li>
-<li><p>evaluation and demo entry points</p></li>
-</ul>
-<p>Do not treat it as:</p>
-<ul class="simple">
-<li><p>environment logic</p></li>
-<li><p>config resolution</p></li>
-<li><p>path management</p></li>
-</ul>
-<p>Those belong elsewhere.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Agent</span></code> owns the algorithm lifecycle and callbacks. Environment logic, config resolution and path management have separate owners.</p>
 </section>
 <section id="main-methods">
 <h2>Main Methods<a class="headerlink" href="#main-methods" title="Link to this heading">¶</a></h2>
@@ -485,32 +461,7 @@
 </section>
 <section id="control-flow">
 <h2>Control Flow<a class="headerlink" href="#control-flow" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper colwidths-auto docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Stage</p></th>
-<th class="head"><p>Main question</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set_algo()</span></code></p></td>
-<td><p>Which backend and policy are we using?</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">train()</span></code></p></td>
-<td><p>How do we log, checkpoint, and stop?</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">load()</span></code></p></td>
-<td><p>How do we reconstruct the saved model safely?</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code></p></td>
-<td><p>How do we produce summary metrics?</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">demo()</span></code></p></td>
-<td><p>How do we render one run interactively or headlessly?</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>The methods above follow the setup, training, loading and evaluation stages shown below.</p>
 </section>
 <section id="typical-workflow">
 <h2>Typical Workflow<a class="headerlink" href="#typical-workflow" title="Link to this heading">¶</a></h2>
@@ -574,7 +525,7 @@ agent.train() / agent.evaluate() / agent.demo()
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

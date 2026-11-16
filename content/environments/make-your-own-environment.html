@@ -340,7 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="make-your-own-environment">
 <h1>Make Your Own Environment<a class="headerlink" href="#make-your-own-environment" title="Link to this heading">¶</a></h1>
-<p>Use this page when you want to add a new environment to CTRL-P or decide whether the generic Gymnasium adapter is already enough.</p>
+<p>Use this guide to choose the Gymnasium adapter or add a built-in environment.</p>
 <section id="choose-the-right-path">
 <h2>Choose The Right Path<a class="headerlink" href="#choose-the-right-path" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-auto docutils container">
@@ -369,8 +369,7 @@
 </section>
 <section id="option-1-use-a-standard-gymnasium-environment">
 <h2>Option 1: Use a Standard Gymnasium Environment<a class="headerlink" href="#option-1-use-a-standard-gymnasium-environment" title="Link to this heading">¶</a></h2>
-<p>If a normal Gymnasium environment already solves your use case, do not create a new source folder.</p>
-<p>Create a run config, for example <code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/runs/default/ppo/default/run.yml</span></code>:</p>
+<p>For a standard Gymnasium environment, create a run config such as <code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/runs/default/ppo/default/run.yml</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">select</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cartpole-v1</span>
 <span class="w">  </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
@@ -386,7 +385,7 @@
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>experiments/cartpole-v1/presets/
 </pre></div>
 </div>
-<p>This is the fastest path when you only need a benchmark env for runtime testing, training validation, or HPO experiments.</p>
+<p>Use this path for benchmark-based runtime checks, training validation or HPO.</p>
 </section>
 <section id="option-2-add-a-built-in-ctrl-p-environment">
 <h2>Option 2: Add a Built-in CTRL-P Environment<a class="headerlink" href="#option-2-add-a-built-in-ctrl-p-environment" title="Link to this heading">¶</a></h2>
@@ -440,8 +439,7 @@
 </section>
 <section id="registration">
 <h2>Registration<a class="headerlink" href="#registration" title="Link to this heading">¶</a></h2>
-<p>Environment registration lives in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p>
-<p>That file should:</p>
+<p>The package’s <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> should:</p>
 <ul class="simple">
 <li><p>expose the environment class</p></li>
 <li><p>define <code class="docutils literal notranslate"><span class="pre">ENV_SPEC</span></code></p></li>
@@ -531,12 +529,11 @@ integration paths; see <a class="reference internal" href="../architecture.html"
 </section>
 <section id="defaults-and-outputs">
 <h2>Defaults And Outputs<a class="headerlink" href="#defaults-and-outputs" title="Link to this heading">¶</a></h2>
-<p>Built-in environments can own package defaults in <code class="docutils literal notranslate"><span class="pre">defaults/</span></code>.</p>
-<p>Task-level overrides still live in:</p>
+<p>Built-in package defaults live in <code class="docutils literal notranslate"><span class="pre">defaults/</span></code>; task-level overrides live in:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>experiments/&lt;env&gt;/
 </pre></div>
 </div>
-<p>Run outputs still go to:</p>
+<p>Run outputs go to:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>experiments/&lt;env&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/
 </pre></div>
 </div>
@@ -603,7 +600,7 @@ integration paths; see <a class="reference internal" href="../architecture.html"
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

@@ -359,7 +359,7 @@
 <li><p>the collected transition is used for learning or evaluation</p></li>
 </ol>
 <p>This produces trajectories of the form <span class="math notranslate nohighlight">\((o_t, a_t, r_t, o_{t+1})\)</span>.</p>
-<p>In a real runtime, the transition usually carries more than those four symbols. Practical trajectories also include episode-end flags such as <code class="docutils literal notranslate"><span class="pre">terminated</span></code> and <code class="docutils literal notranslate"><span class="pre">truncated</span></code>, plus extra <code class="docutils literal notranslate"><span class="pre">info</span></code> fields for metrics, diagnostics, or rollout metadata.</p>
+<p>Practical trajectories also include <code class="docutils literal notranslate"><span class="pre">terminated</span></code>, <code class="docutils literal notranslate"><span class="pre">truncated</span></code> and <code class="docutils literal notranslate"><span class="pre">info</span></code> fields for metrics, diagnostics or rollout metadata.</p>
 </section>
 <section id="key-concepts">
 <h2>Key Concepts<a class="headerlink" href="#key-concepts" title="Link to this heading">¶</a></h2>
@@ -409,8 +409,7 @@ V^\pi(s) = \mathbb{E}_\pi\left[\sum_{t=0}^{\infty} \gamma^t r_{t+1} \mid s_0 = s
 </section>
 <section id="trajectory-metadata">
 <h3>Trajectory Metadata<a class="headerlink" href="#trajectory-metadata" title="Link to this heading">¶</a></h3>
-<p>Many scientific RL workflows need more than reward alone.</p>
-<p>Useful trajectory metadata can include:</p>
+<p>Useful metadata includes:</p>
 <ul class="simple">
 <li><p>success flags</p></li>
 <li><p>episode length</p></li>
@@ -418,12 +417,12 @@ V^\pi(s) = \mathbb{E}_\pi\left[\sum_{t=0}^{\infty} \gamma^t r_{t+1} \mid s_0 = s
 <li><p>raw observations and rewards before wrapper transforms</p></li>
 <li><p>scenario identifiers or ProcGen settings</p></li>
 </ul>
-<p>That extra context is often what makes later evaluation, debugging, or imitation learning possible.</p>
+<p>This context supports evaluation, debugging and imitation learning.</p>
 </section>
 </section>
 <section id="common-algorithm-families">
 <h2>Common Algorithm Families<a class="headerlink" href="#common-algorithm-families" title="Link to this heading">¶</a></h2>
-<p>CTRL-P treats three families as first-class citizens.</p>
+<p>CTRL-P supports these families:</p>
 <section id="heuristic-methods">
 <h3>Heuristic methods<a class="headerlink" href="#heuristic-methods" title="Link to this heading">¶</a></h3>
 <p>Examples: zig-zag, nearest-neighbor, and other rule-based strategies.</p>
@@ -448,12 +447,12 @@ V^\pi(s) = \mathbb{E}_\pi\left[\sum_{t=0}^{\infty} \gamma^t r_{t+1} \mid s_0 = s
 <h3>Offline and imitation methods<a class="headerlink" href="#offline-and-imitation-methods" title="Link to this heading">¶</a></h3>
 <p>Examples: behavior cloning and dataset-driven pretraining.</p>
 <p>These learn from saved trajectories instead of or before online interaction.</p>
-<p>In CTRL-P, this is not just a side topic. Offline workflows connect directly to the <code class="docutils literal notranslate"><span class="pre">rollout</span></code> and <code class="docutils literal notranslate"><span class="pre">pretrain</span></code> tasks, and behavior cloning can be trained on datasets produced by heuristics or learned policies.</p>
+<p>In CTRL-P, <code class="docutils literal notranslate"><span class="pre">rollout</span></code> and <code class="docutils literal notranslate"><span class="pre">pretrain</span></code> prepare datasets from heuristics or learned policies for behavior cloning.</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../../_images/tree-external.svg"><img alt="State-action tree from the project figure deck with highlighted action branches and resulting states." src="../../_images/tree-external.svg" style="width: 92%;" />
 </a>
 <figcaption>
-<p><span class="caption-text">State-action tree illustration from the project figure deck. It works well as intuition for how discrete RL rollouts branch through actions and successor states.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Discrete actions lead to different successor states.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -489,14 +488,13 @@ V^\pi(s) = \mathbb{E}_\pi\left[\sum_{t=0}^{\infty} \gamma^t r_{t+1} \mid s_0 = s
 </section>
 <section id="procgen-as-controlled-scenario-variation">
 <h3>ProcGen As Controlled Scenario Variation<a class="headerlink" href="#procgen-as-controlled-scenario-variation" title="Link to this heading">¶</a></h3>
-<p>For built-in environments, ProcGen is part of the learning problem definition, not just a file-generation detail.</p>
-<p>It controls which masks, loads, or scenario inputs the agent sees. That means ProcGen affects:</p>
+<p>For built-in environments, ProcGen controls the masks, loads or scenarios the agent sees. It affects:</p>
 <ul class="simple">
 <li><p>what the policy is trained on</p></li>
 <li><p>how reproducible the task distribution is</p></li>
 <li><p>whether train, val, and test scenarios are meaningfully separated</p></li>
 </ul>
-<p>For students, the key idea is simple: changing ProcGen can change the problem itself, not only the data volume.</p>
+<p>Changing ProcGen can change the task itself, not only the data volume.</p>
 </section>
 </section>
 <section id="read-next">
@@ -554,7 +552,7 @@ V^\pi(s) = \mathbb{E}_\pi\left[\sum_{t=0}^{\infty} \gamma^t r_{t+1} \mid s_0 = s
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

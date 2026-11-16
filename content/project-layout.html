@@ -340,7 +340,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="project-layout">
 <h1>Project Layout<a class="headerlink" href="#project-layout" title="Link to this heading">¶</a></h1>
-<p>The package and experiment workspace are easiest to understand as six separate areas:</p>
+<p>The workspace has six main areas:</p>
 <ul class="simple">
 <li><p>installable framework code in <code class="docutils literal notranslate"><span class="pre">src/ctrlp/</span></code></p></li>
 <li><p>shared environment substrate in <code class="docutils literal notranslate"><span class="pre">src/ctrlp/environments/common/</span></code></p></li>
@@ -425,12 +425,11 @@ docs/tools/
 ./.venv-wsl/bin/python<span class="w"> </span>scripts/check_docs.py<span class="w"> </span>--html<span class="w"> </span>docs/_build/html
 </pre></div>
 </div>
-<p>The generated HTML is published through GitHub Pages from the separate repository <a class="reference external" href="https://github.com/RSchmeitz/ctrlp-zoo-docs">RSchmeitz/ctrlp-zoo-docs</a>. Treat that repository as the built-site target.</p>
-<p>On pushes to GitHub <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">.github/workflows/docs.yml</span></code> builds these source pages and publishes the generated output to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch of <code class="docutils literal notranslate"><span class="pre">RSchmeitz/ctrlp-zoo-docs</span></code>. That workflow requires the <code class="docutils literal notranslate"><span class="pre">DOCS_DEPLOY_TOKEN</span></code> repository secret. If the secret is missing or expired, the local source docs can still build, but the public site will not update.</p>
+<p>On GitHub <code class="docutils literal notranslate"><span class="pre">main</span></code> pushes, <code class="docutils literal notranslate"><span class="pre">.github/workflows/docs.yml</span></code> builds these pages and publishes to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch of <a class="reference external" href="https://github.com/RSchmeitz/ctrlp-zoo-docs">ctrlp-zoo-docs</a>. Publishing requires the <code class="docutils literal notranslate"><span class="pre">DOCS_DEPLOY_TOKEN</span></code> repository secret; local builds do not.</p>
 </section>
 <section id="what-you-edit">
 <h2>What You Edit<a class="headerlink" href="#what-you-edit" title="Link to this heading">¶</a></h2>
-<p>The editable experiment surface is env-local:</p>
+<p>Experiment inputs are env-local:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>experiments/&lt;env&gt;/
 </pre></div>
 </div>
@@ -469,11 +468,11 @@ docs/tools/
 <li><p><code class="docutils literal notranslate"><span class="pre">hpo/best_trial.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hpo/study_summary.yml</span></code></p></li>
 </ul>
-<p>Edit <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> only when the run itself is the thing you want to rerun. Do not edit <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code>; it is generated output. Snapshot loading is explicit through the manager setup path, while normal CLI runs resolve from <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">presets/</span></code>.</p>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> for the run you want to execute. <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> is generated; replay modes prefer it when available, while source-based modes read <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> and presets.</p>
 </section>
 <section id="why-it-is-structured-this-way">
 <h2>Why It Is Structured This Way<a class="headerlink" href="#why-it-is-structured-this-way" title="Link to this heading">¶</a></h2>
-<p>The split is intentional:</p>
+<p>The split keeps editable inputs and generated artifacts distinct:</p>
 <ul class="simple">
 <li><p>env-root run configs are the user entrypoints</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">presets/</span></code> is the reusable editable source area</p></li>
@@ -483,7 +482,6 @@ docs/tools/
 <li><p>the run snapshot preserves the exact resolved configuration that executed</p></li>
 <li><p>replay modes use that snapshot so old runs can be inspected without rebuilding the exact workspace state</p></li>
 </ul>
-<p>That keeps source config, execution control, and generated artifacts separate without scattering one task across multiple roots.</p>
 </section>
 <section id="one-concrete-example">
 <h2>One Concrete Example<a class="headerlink" href="#one-concrete-example" title="Link to this heading">¶</a></h2>
@@ -591,7 +589,7 @@ docs/tools/
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 

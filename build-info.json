@@ -1,10 +1,10 @@
 {
   "schema": "ctrlp.documentation-build.v1",
   "source_kind": "development working tree",
-  "source_revision": "d1b365404afbada0d07ac6ce74c7a7da7f1d5ca1",
-  "primary_source_revision": "561e28b55a5300c746c8a21e1ef0f7babd381ac6",
+  "source_revision": "376db375021befa6756e0f29218ad313969c47ff",
+  "primary_source_revision": "44ecdd9f6a0ef5dc30a236412b64fe77c77a2f25",
   "code_sha256": "3b1b6536f7b731662ac36ff828d36182c8b47c5292dcf0629e592dc9f13d95b2",
   "controls_sha256": "559ed9b7dd66d116502338b997a3b0206daafc09ff566b33bcb92975ad6429d1",
-  "documentation_sha256": "f042aff9e35ed142c5963a55f6aa992fd9f3f0ba518ec6ea871684c9532026b0",
-  "built_at": "2026-11-16T16:59:46.882283+00:00"
+  "documentation_sha256": "3a79ec25d784c559b899560c93d9f7d53999ff0c1c4db92966b95560e2857de0",
+  "built_at": "2026-11-16T17:18:50.189353+00:00"
 }

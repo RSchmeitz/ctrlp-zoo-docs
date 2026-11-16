@@ -340,15 +340,14 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="algorithm-architecture">
 <h1>Algorithm Architecture<a class="headerlink" href="#algorithm-architecture" title="Link to this heading">¶</a></h1>
-<p>This page explains how algorithms are organized in CTRL-P and where to look when you want to extend or debug them.</p>
+<p>This page maps algorithm families and where to extend or debug them.</p>
 <section id="high-level-split">
 <h2>High-Level Split<a class="headerlink" href="#high-level-split" title="Link to this heading">¶</a></h2>
 <p>CTRL-P separates algorithms into three groups:</p>
 </section>
 <section id="heuristics">
 <h2>1. Heuristics<a class="headerlink" href="#heuristics" title="Link to this heading">¶</a></h2>
-<p>These are non-trainable policies used as baselines or simple controllers.</p>
-<p>Examples:</p>
+<p>Non-trainable baselines and controllers, including:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">zigzag</span></code></p></li>
 <li><p>other rule-based planners</p></li>
@@ -356,8 +355,7 @@
 </section>
 <section id="reinforcement-learning">
 <h2>2. Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Link to this heading">¶</a></h2>
-<p>These are trainable RL algorithms built around Stable Baselines3 or SBX.</p>
-<p>Examples:</p>
+<p>Trainable RL algorithms include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ppo</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dqn</span></code></p></li>
@@ -368,8 +366,7 @@
 </section>
 <section id="imitation-learning">
 <h2>3. Imitation Learning<a class="headerlink" href="#imitation-learning" title="Link to this heading">¶</a></h2>
-<p>These are trainable algorithms based on offline or demonstration data.</p>
-<p>Current built-in example:</p>
+<p>Trainable methods based on offline or demonstration data include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bc</span></code></p></li>
 </ul>
@@ -390,8 +387,7 @@
 <h2>Core Decisions<a class="headerlink" href="#core-decisions" title="Link to this heading">¶</a></h2>
 <section id="heuristics-are-simple">
 <h3>Heuristics are simple<a class="headerlink" href="#heuristics-are-simple" title="Link to this heading">¶</a></h3>
-<p>Heuristics do not pretend to be full trainable algorithms.</p>
-<p>They primarily need:</p>
+<p>Heuristics need:</p>
 <ul class="simple">
 <li><p>action selection</p></li>
 <li><p>optional internal reset state</p></li>
@@ -399,8 +395,7 @@
 </section>
 <section id="trainable-algorithms-reuse-existing-frameworks">
 <h3>Trainable algorithms reuse existing frameworks<a class="headerlink" href="#trainable-algorithms-reuse-existing-frameworks" title="Link to this heading">¶</a></h3>
-<p>CTRL-P does not reimplement the full training infrastructure from scratch.</p>
-<p>Instead it builds on:</p>
+<p>CTRL-P builds on:</p>
 <ul class="simple">
 <li><p>Stable Baselines3</p></li>
 <li><p>SBX where the JAX backend is supported</p></li>
@@ -414,7 +409,7 @@ fails before training starts.</p>
 </section>
 <section id="the-runtime-depends-on-a-shared-surface">
 <h3>The runtime depends on a shared surface<a class="headerlink" href="#the-runtime-depends-on-a-shared-surface" title="Link to this heading">¶</a></h3>
-<p>Regardless of algorithm family, the runtime wants a usable <code class="docutils literal notranslate"><span class="pre">predict(...)</span></code> path and clear load/train behavior.</p>
+<p>Each algorithm family provides a <code class="docutils literal notranslate"><span class="pre">predict(...)</span></code> path and clear load/train behavior.</p>
 </section>
 </section>
 <section id="what-to-inspect-when-debugging">
@@ -558,7 +553,7 @@ deterministically seeded reset. The checkpoint records this limitation.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d1b36540
+  · source 376db375
 </p>
 
 
