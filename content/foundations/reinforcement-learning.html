@@ -9,11 +9,12 @@
         <link rel="prefetch" href="../../_static/images/dark.svg" as="image">
 
     <link rel="shortcut icon" href="../../_static/simple.svg"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Reinforcement Learning - CTRL-P Zoo — development documentation</title>
+        <title>Reinforcement Learning - CTRL-P Zoo documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=bf41e257" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/reading.css?v=dae3e962" />
     
     
 
@@ -170,7 +171,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">CTRL-P Zoo — development documentation</div></a>
+      <a href="../../index.html"><div class="brand">CTRL-P Zoo documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -195,7 +196,7 @@
     <img class="sidebar-logo only-dark" src="../../_static/images/dark.svg" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">CTRL-P Zoo — development documentation</span>
+  <span class="sidebar-brand-text">CTRL-P Zoo documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -338,7 +339,14 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
+          
+
+<nav class="doc-path" aria-label="Documentation path">
+  <a href="../../index.html">Documentation</a>
+  
+</nav>
+
+<section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
 <h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Link to this heading">¶</a></h1>
 <p>These pages bridge the quick start and code reference. CTRL-P supports three related approaches:</p>
 <ul class="simple">
@@ -349,42 +357,31 @@
 <p>The theory starts with RL and also covers the environments, datasets and evaluation needed to compare these approaches.</p>
 <section id="what-this-section-covers">
 <h2>What This Section Covers<a class="headerlink" href="#what-this-section-covers" title="Link to this heading">¶</a></h2>
+<div class="guide-grid docutils container">
 <ul class="simple">
-<li><p><a class="reference internal" href="core-rl-concepts.html"><span class="std std-doc">Core RL Concepts</span></a>: the agent, environment, trajectories, returns, and the three main CTRL-P algorithm families</p></li>
-<li><p><a class="reference internal" href="environment-design.html"><span class="std std-doc">Environment Design</span></a>: how observations, actions, rewards, horizons, info fields, and ProcGen choices shape the learning problem</p></li>
-<li><p><a class="reference internal" href="experiment-design.html"><span class="std std-doc">Experiment Design</span></a>: what makes an RL or imitation experiment trustworthy and which parameters matter most</p></li>
-<li><p><a class="reference internal" href="rl-parameter-effects.html"><span class="std std-doc">RL Parameter Effects</span></a>: how environment, policy, algorithm, and budget parameters tend to affect training outcomes</p></li>
-<li><p><a class="reference internal" href="grid-rl-experiments.html"><span class="std std-doc">Grid-Style RL Experiments</span></a>: research lessons from 2D grid, maze, FFFLite, Procgen, MinAtar, and MiniHack-style tasks</p></li>
-<li><p><a class="reference internal" href="rl-in-additive-manufacturing.html"><span class="std std-doc">RL In Additive Manufacturing</span></a>: why these RL ideas matter for additive-manufacturing control problems</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="core-rl-concepts.html">Core RL Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment-design.html">Environment Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="experiment-design.html">Experiment Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rl-parameter-effects.html">RL Parameter Effects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="grid-rl-experiments.html">Grid-Style RL Experiments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rl-in-additive-manufacturing.html">RL In Additive Manufacturing</a></li>
+<li><p><strong><a class="reference internal" href="core-rl-concepts.html"><span class="std std-doc">Core RL Concepts</span></a></strong>
+Agents, policies, trajectories and returns. Start here.</p></li>
+<li><p><strong><a class="reference internal" href="environment-design.html"><span class="std std-doc">Environment Design</span></a></strong>
+Choose observations, actions, rewards and scenarios.</p></li>
+<li><p><strong><a class="reference internal" href="experiment-design.html"><span class="std std-doc">Experiment Design</span></a></strong>
+Build fair comparisons with clear evaluation.</p></li>
+<li><p><strong><a class="reference internal" href="rl-parameter-effects.html"><span class="std std-doc">RL Parameter Effects</span></a></strong>
+Understand what changes when you tune a parameter.</p></li>
+<li><p><strong><a class="reference internal" href="grid-rl-experiments.html"><span class="std std-doc">Grid-Style RL Experiments</span></a></strong>
+Diagnose movement, coverage and generalization tasks.</p></li>
+<li><p><strong><a class="reference internal" href="rl-in-additive-manufacturing.html"><span class="std std-doc">RL In Additive Manufacturing</span></a></strong>
+Connect the learning problem to process control.</p></li>
 </ul>
 </div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If you are new to reinforcement learning, read this section before going deep into the <code class="docutils literal notranslate"><span class="pre">Code</span></code> pages.</p>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 <section id="reading-order">
 <h2>Reading Order<a class="headerlink" href="#reading-order" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Start with <a class="reference internal" href="core-rl-concepts.html"><span class="std std-doc">Core RL Concepts</span></a>.</p></li>
-<li><p>Continue with <a class="reference internal" href="environment-design.html"><span class="std std-doc">Environment Design</span></a>.</p></li>
-<li><p>Use <a class="reference internal" href="experiment-design.html"><span class="std std-doc">Experiment Design</span></a> before editing configs.</p></li>
-<li><p>Use <a class="reference internal" href="rl-parameter-effects.html"><span class="std std-doc">RL Parameter Effects</span></a> when interpreting run outcomes or planning the next parameter change.</p></li>
-<li><p>Use <a class="reference internal" href="grid-rl-experiments.html"><span class="std std-doc">Grid-Style RL Experiments</span></a> when working on FFFLite, PBFLite, DAWN fill tasks, or other 2D movement/control surfaces.</p></li>
-<li><p>Read <a class="reference internal" href="rl-in-additive-manufacturing.html"><span class="std std-doc">RL In Additive Manufacturing</span></a> when you want the domain context behind CTRL-P.</p></li>
-<li><p>Continue into <a class="reference internal" href="../research/research.html"><span class="std std-doc">Research</span></a> when you want publications, reading lists, and student research projects.</p></li>
-</ol>
+<p>Start with concepts, environment design and experiment design. Use the other guides for your task, then explore <a class="reference internal" href="../research/research.html"><span class="std std-doc">Research</span></a> for publications and projects.</p>
 </section>
 </section>
+
 
         </article>
       </div>
@@ -432,7 +429,7 @@
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source d659de2e
+  · source 046a8e3c
 </p>
 
 

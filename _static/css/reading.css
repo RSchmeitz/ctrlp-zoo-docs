@@ -1,0 +1,261 @@
+/* Reading layout layered over the shared CTRL-P theme and media components. */
+body {
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: var(--font-stack);
+    line-height: 1.62;
+}
+
+.content {
+    max-width: 48rem;
+    min-width: 0;
+}
+
+.content p,
+.content li,
+.content dd,
+.content dt {
+    font-size: 1rem;
+    line-height: 1.62;
+}
+
+.content p {
+    margin: 0.65rem 0 0.95rem;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+    color: var(--color-foreground-primary);
+    line-height: 1.25;
+    font-weight: 650;
+    scroll-margin-top: 4rem;
+}
+
+.content h1 {
+    font-size: clamp(1.85rem, 3vw, 2.3rem);
+    letter-spacing: -0.035em;
+    margin: 0.6rem 0 1rem;
+}
+
+.content h1 + p {
+    font-size: 1.08rem;
+    color: var(--color-foreground-secondary);
+    line-height: 1.65;
+    margin-bottom: 1.35rem;
+}
+
+.content h2 {
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.7rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--color-border-soft);
+}
+
+.content h3 {
+    font-size: 1.12rem;
+    margin: 1.4rem 0 0.5rem;
+}
+
+.content li + li {
+    margin-top: 0.25rem;
+}
+
+.content li > p {
+    margin: 0.3rem 0;
+}
+
+.content ul,
+.content ol {
+    padding-left: 1.4rem;
+}
+
+.content :is(p, li) a.reference {
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+}
+
+.content a:focus-visible {
+    outline: 2px solid var(--color-brand-content);
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.doc-path {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0.4rem 2rem 1rem 0;
+    color: var(--color-foreground-muted);
+}
+
+.doc-path a {
+    color: var(--color-foreground-secondary);
+    text-decoration: none;
+}
+
+.doc-path a:hover {
+    color: var(--color-brand-content);
+    text-decoration: underline;
+}
+
+.content pre {
+    box-shadow: none;
+    border-radius: 8px;
+    line-height: 1.5;
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+.content :is(p, li, td) code {
+    padding: 0.08rem 0.25rem;
+    font-size: 0.88em;
+    border-color: transparent;
+    overflow-wrap: anywhere;
+}
+
+.content table {
+    line-height: 1.5;
+    border-radius: 8px;
+    margin: 1rem 0 1.3rem;
+}
+
+.content table :is(th, td) {
+    vertical-align: top;
+    padding: 0.6rem 0.7rem;
+}
+
+.content table p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.content img {
+    box-shadow: none;
+    max-width: 100%;
+    height: auto;
+}
+
+.content figure {
+    margin: 1.25rem 0;
+}
+
+.content figcaption {
+    color: var(--color-foreground-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.content .admonition {
+    border-radius: 8px;
+    box-shadow: none;
+    margin: 1.2rem 0;
+    padding: 0.15rem 1rem 0.6rem;
+}
+
+.content .admonition > .admonition-title {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    font-weight: 650;
+}
+
+.sidebar-tree .caption,
+.toc-title {
+    letter-spacing: 0.05em;
+    font-size: 0.72rem;
+}
+
+.sidebar-tree a.reference {
+    line-height: 1.45;
+    color: var(--color-foreground-secondary);
+}
+
+.sidebar-tree a.reference:is(.current, :hover) {
+    color: var(--color-brand-content);
+}
+
+.toc-tree a {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.sidebar-brand-text {
+    font-size: 0.88rem;
+    color: var(--color-foreground-secondary);
+}
+
+.content .guide-grid > ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+}
+
+.content .guide-grid > ul > li {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 10px;
+    background: var(--color-soft-surface);
+}
+
+.content .guide-grid li strong {
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.content .guide-grid li a {
+    text-decoration: none;
+}
+
+.content .guide-grid li > p:first-child > a {
+    font-weight: 650;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.content .guide-grid li a:hover {
+    text-decoration: underline;
+}
+
+.content .guide-grid li p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--color-foreground-secondary);
+}
+
+.related-pages a {
+    border: 1px solid var(--color-border-soft);
+    border-radius: 8px;
+    padding: 0.8rem;
+}
+
+.build-identity {
+    font-size: 0.75rem;
+    color: var(--color-foreground-muted);
+}
+
+@media (max-width: 48rem) {
+    .content h1 {
+        font-size: 1.85rem;
+    }
+
+    .content .guide-grid > ul {
+        grid-template-columns: 1fr;
+    }
+
+    .content table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .content h2 {
+        margin-top: 1.65rem;
+    }
+}
