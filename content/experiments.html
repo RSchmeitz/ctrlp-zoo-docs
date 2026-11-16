@@ -13,7 +13,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=70d7d5f1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=089b4b7b" />
     
     
 
@@ -340,13 +340,10 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="experiments">
 <h1>Experiments<a class="headerlink" href="#experiments" title="Link to this heading">¶</a></h1>
-<p>This page shows the practical experiment flow in CTRL-P.</p>
-<p>If you are still setting up the project, go back to <a class="reference internal" href="install.html"><span class="std std-doc">Installation</span></a>. If you only want the short command surface, use <a class="reference internal" href="command-guide.html"><span class="std std-doc">Command Guide</span></a>.</p>
+<p>Follow a small CartPole experiment from configuration to evaluation. For setup, see <a class="reference internal" href="install.html"><span class="std std-doc">Installation</span></a>; for a command reference, see the <a class="reference internal" href="command-guide.html"><span class="std std-doc">Command Guide</span></a>.</p>
 <section id="start-with-one-simple-gymnasium-experiment">
 <h2>Start With One Simple Gymnasium Experiment<a class="headerlink" href="#start-with-one-simple-gymnasium-experiment" title="Link to this heading">¶</a></h2>
-<p>The easiest way to understand CTRL-P is to run one small experiment on a standard Gymnasium environment such as <code class="docutils literal notranslate"><span class="pre">CartPole-v1</span></code>.</p>
-<p>CTRL-P ships ready-to-run run configs directly under <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/</span></code>.
-For the CartPole example, the repository contains only the <code class="docutils literal notranslate"><span class="pre">run.yml</span></code>; CTRL-P generates the presets locally on first run and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> keeps them out of version control. Use it for installation checks and quick smoke tests; use <code class="docutils literal notranslate"><span class="pre">lite/fff-v2</span></code> or <code class="docutils literal notranslate"><span class="pre">lite/pbf-v2</span></code> for new lightweight process work, or choose Dawn, Graph or Mirage from the <a class="reference internal" href="environments/built-in-environments.html"><span class="std std-doc">environment comparison</span></a>. Legacy Lite V0 controls remain available for replay.</p>
+<p>CTRL-P stores run configurations under <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/</span></code>. The CartPole <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> is included; its presets are generated locally on the first executable run and ignored by Git. Use CartPole for installation checks and quick smoke tests. For process work, see the <a class="reference internal" href="environments/built-in-environments.html"><span class="std std-doc">environment comparison</span></a>; legacy Lite V0 controls remain available for replay.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/runs/default/ppo/default/run.yml</span></code> contains:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">select</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cartpole-v1</span>
@@ -367,22 +364,8 @@ For the CartPole example, the repository contains only the <code class="docutils
 <span class="w">    </span><span class="nt">timesteps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10000</span>
 </pre></div>
 </div>
-<p>This means:</p>
-<ul class="simple">
-<li><p>the folder path selects the task, algorithm, and run name</p></li>
-<li><p>the YAML confirms the manifest with <code class="docutils literal notranslate"><span class="pre">select</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">presets</span></code> picks short reusable preset names such as <code class="docutils literal notranslate"><span class="pre">procgen</span></code>, <code class="docutils literal notranslate"><span class="pre">reward</span></code>, and <code class="docutils literal notranslate"><span class="pre">vec</span></code></p></li>
-<li><p>the run config lives in <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">runtime.sweep.seed</span></code> defines the run seeds</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">runtime.train.timesteps</span></code> sets the training length</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">runtime.hpo</span></code> is already present in the default run config, so HPO reuses the same entrypoint</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">presets/hpo/&lt;algo&gt;.yml</span></code> stores the HPO search space for that algo family</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/parameters.yml</span></code> stores the frozen resolved snapshot after a run executes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">demo</span></code> uses the built-in live default, so no extra config stanza is required; headless sessions fall back to scripted playback automatically</p></li>
-<li><p>the CartPole example is intentionally local-only, so it is safe to use for installation checks without polluting the tracked experiment tree</p></li>
-</ul>
-<p>If you want to change reusable defaults, edit the run config or the matching files under <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/presets/</span></code> and train again. If you want a concrete one-off execution, run from <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/runs/&lt;task&gt;/&lt;algo&gt;/&lt;run&gt;/run.yml</span></code>.</p>
-<p>You can pass the full path, but normal daily use can use slash selectors. For example:</p>
+<p>The path and <code class="docutils literal notranslate"><span class="pre">select</span></code> identify the task, algorithm and run. <code class="docutils literal notranslate"><span class="pre">presets</span></code> selects reusable settings; <code class="docutils literal notranslate"><span class="pre">runtime.sweep.seed</span></code> and <code class="docutils literal notranslate"><span class="pre">runtime.train.timesteps</span></code> set the seeds and training length. Edit the run config or its matching files under <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/presets/</span></code> to change the setup.</p>
+<p>Use a path or a slash selector to discover and resolve runs:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>list
 ctrlp<span class="w"> </span>list<span class="w"> </span>lite/pbf/fill/ppo<span class="w"> </span>--long
 ctrlp<span class="w"> </span>lite/pbf/fill/ppo/smoke<span class="w"> </span>--mode<span class="w"> </span>resolve
@@ -419,32 +402,30 @@ ctrlp<span class="w"> </span>lite/pbf/fill/ppo/smoke<span class="w"> </span>--mo
 ctrlp<span class="w"> </span>experiments/cartpole-v1/runs/default/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span>demo
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">eval</span></code> and <code class="docutils literal notranslate"><span class="pre">demo</span></code> replay the saved run snapshot when it exists so they match the trained setup exactly. That is why the output folder keeps a <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> snapshot next to the model checkpoints. <code class="docutils literal notranslate"><span class="pre">demo</span></code> uses the built-in live default, so no extra YAML block is required, and headless sessions automatically fall back to scripted playback.</p>
+<p>When available, <code class="docutils literal notranslate"><span class="pre">eval</span></code> and <code class="docutils literal notranslate"><span class="pre">demo</span></code> replay the saved <code class="docutils literal notranslate"><span class="pre">parameters.yml</span></code> snapshot. Demo uses a live view by default and falls back to scripted playback in headless sessions.</p>
 </section>
 <section id="hpo">
 <h3>5. <code class="docutils literal notranslate"><span class="pre">hpo</span></code><a class="headerlink" href="#hpo" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>experiments/cartpole-v1/runs/default/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span>hpo
 </pre></div>
 </div>
-<p>HPO uses the same default run config plus the task-local search space in <code class="docutils literal notranslate"><span class="pre">experiments/&lt;env&gt;/presets/hpo/&lt;algo&gt;.yml</span></code>. After the study finishes, CTRL-P writes <code class="docutils literal notranslate"><span class="pre">hpo/best_trial.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">hpo/study_summary.yml</span></code>, and a generated <code class="docutils literal notranslate"><span class="pre">runs/&lt;task&gt;/&lt;algo&gt;/best/run.yml</span></code> file so you can train the best result directly.</p>
+<p>HPO reads the run config and <code class="docutils literal notranslate"><span class="pre">presets/hpo/&lt;algo&gt;.yml</span></code>. It writes <code class="docutils literal notranslate"><span class="pre">hpo/best_trial.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">hpo/study_summary.yml</span></code>, and a <code class="docutils literal notranslate"><span class="pre">runs/&lt;task&gt;/&lt;algo&gt;/best/run.yml</span></code> for training the best trial.</p>
 </section>
 </section>
 <section id="what-ctrl-p-creates-for-gymnasium-environments">
 <h2>What CTRL-P Creates For Gymnasium Environments<a class="headerlink" href="#what-ctrl-p-creates-for-gymnasium-environments" title="Link to this heading">¶</a></h2>
-<p>For a standard Gymnasium environment, CTRL-P bootstraps editable preset files on the first executable run. The <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> itself must already exist; CartPole’s is included in the repository.</p>
-<p>For the CartPole example, the generated files live under:</p>
+<p>On the first executable run, CTRL-P creates editable Gymnasium presets. The <code class="docutils literal notranslate"><span class="pre">run.yml</span></code> must already exist. For CartPole, the generated files include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/presets/tasks/default.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/presets/reward/default/ppo/default.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/presets/vec/default/ppo/default.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/cartpole-v1/presets/algo/ppo/base.yml</span></code></p></li>
 </ul>
-<p>Those files are created locally and ignored by git. If you want a committed example tree, work in <code class="docutils literal notranslate"><span class="pre">dawn</span></code>, <code class="docutils literal notranslate"><span class="pre">lite/fff</span></code>, or <code class="docutils literal notranslate"><span class="pre">lite/pbf</span></code> instead.</p>
-<p>That lets you start from one small run config, run once, and then refine the generated task, reward, vectorization, and algorithm sources later.</p>
+<p>These files are local and ignored by Git. For a committed example tree, see <code class="docutils literal notranslate"><span class="pre">dawn</span></code>, <code class="docutils literal notranslate"><span class="pre">lite/fff</span></code>, or <code class="docutils literal notranslate"><span class="pre">lite/pbf</span></code>.</p>
 </section>
 <section id="runtime-flow-summary">
 <h2>Runtime Flow Summary<a class="headerlink" href="#runtime-flow-summary" title="Link to this heading">¶</a></h2>
-<p>The beginner loop is still the same:</p>
+<p>The basic loop is:</p>
 <ol class="arabic simple">
 <li><p>resolve the setup</p></li>
 <li><p>check that the environment and model build correctly</p></li>
@@ -540,7 +521,7 @@ ctrlp<span class="w"> </span>experiments/cartpole-v1/runs/default/ppo/default/ru
 <p class="build-identity">
   Development documentation ·
   <a href="../build-info.json">Build identity</a>
-  · source 7d7f2270
+  · source d1b36540
 </p>
 
 

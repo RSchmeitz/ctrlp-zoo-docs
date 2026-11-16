@@ -47,7 +47,7 @@ body {
     --color-sidebar-background-border: rgba(130, 56, 179, 0.12);
     --color-toc-background: #fbf9fd;
     font-size: 15px;
-    line-height: 1.72;
+    line-height: 1.58;
     color: var(--color-foreground-primary);
     background: var(--color-background-primary);
 }
@@ -237,14 +237,14 @@ article {
 
 .content h2 {
     font-size: 1.34rem;
-    margin-top: 2rem;
-    margin-bottom: 0.7rem;
+    margin-top: 1.65rem;
+    margin-bottom: 0.55rem;
 }
 
 .content h3 {
     font-size: 1.08rem;
-    margin-top: 1.45rem;
-    margin-bottom: 0.45rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
 }
 
 .content h4 {
@@ -262,7 +262,7 @@ article {
 
 .content h1 + p {
     font-size: 1.07rem;
-    line-height: 1.75;
+    line-height: 1.6;
     color: color-mix(in srgb, var(--color-accent-lavender) 34%, var(--color-foreground-secondary));
     max-width: 48rem;
 }
@@ -784,7 +784,7 @@ body[data-theme="dark"] .thesis-browser__frame {
 
 .content table th,
 .content table td {
-    padding: 0.7rem 0.8rem;
+    padding: 0.55rem 0.7rem;
     border-bottom: 1px solid var(--color-border-soft);
     text-align: left;
 }
