@@ -426,7 +426,6 @@ The explicit <code class="docutils literal notranslate"><span class="pre">ctrlp_
 <h2>Inspect concrete controls<a class="headerlink" href="#inspect-concrete-controls" title="Link to this heading">¶</a></h2>
 <p>After installing the appropriate optional dependencies, start with resolution:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>experiments/cartpole-v1/runs/default/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
-ctrlp<span class="w"> </span>experiments/cartpole-v1/runs/trainer_compare/ppo/torchrl/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
 ctrlp<span class="w"> </span>experiments/lite/pbf-v2/runs/thermo_medium/ppo/gpu-smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
 </pre></div>
 </div>
@@ -435,6 +434,28 @@ its merged settings before copying it. Resolution never proves GPU execution or
 throughput. SBX and other optional algorithms should likewise use a new authored
 run with explicit framework/policy settings rather than changing a historical
 snapshot.</p>
+</section>
+<section id="create-a-torchrl-variant">
+<h2>Create a TorchRL variant<a class="headerlink" href="#create-a-torchrl-variant" title="Link to this heading">¶</a></h2>
+<p>The trainer-comparison controls from private/local studies are not shipped in a
+clean checkout. Create a new control from the committed CartPole example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>new<span class="w"> </span>cartpole-v1/default/ppo/torchrl-docs<span class="w"> </span>--from<span class="w"> </span>cartpole-v1/default/ppo/default
+</pre></div>
+</div>
+<p>In the generated control, set this runtime fragment:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">runtime</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torch</span>
+<span class="w">  </span><span class="nt">trainer</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torchrl</span>
+<span class="w">    </span><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single_node</span>
+</pre></div>
+</div>
+<p>Then resolve the new selector:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>cartpole-v1/default/ppo/torchrl-docs<span class="w"> </span>--mode<span class="w"> </span>resolve
+</pre></div>
+</div>
+<p>Install the optional pinned TorchRL stack before <code class="docutils literal notranslate"><span class="pre">check</span></code> or training. This is a
+new run identity; it does not rewrite the source example or an old snapshot.</p>
 </section>
 <section id="masks-models-and-continuation">
 <h2>Masks, models and continuation<a class="headerlink" href="#masks-models-and-continuation" title="Link to this heading">¶</a></h2>
@@ -502,7 +523,7 @@ successful software check does not establish control quality.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source 8cb9527b
+  · source a5bc564d
 </p>
 
 
@@ -524,6 +545,7 @@ successful software check does not establish control quality.</p>
 <li><a class="reference internal" href="#engines">Engines</a></li>
 <li><a class="reference internal" href="#defaults-and-device-selection">Defaults and device selection</a></li>
 <li><a class="reference internal" href="#inspect-concrete-controls">Inspect concrete controls</a></li>
+<li><a class="reference internal" href="#create-a-torchrl-variant">Create a TorchRL variant</a></li>
 <li><a class="reference internal" href="#masks-models-and-continuation">Masks, models and continuation</a></li>
 </ul>
 </li>

@@ -340,9 +340,12 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="choose-an-environment">
 <h1>Choose an environment<a class="headerlink" href="#choose-an-environment" title="Link to this heading">¶</a></h1>
-<p>The registry contains seven concrete built-in environments. Select the process,
-controlled quantities and required physics first, then choose a compatible
-trainer. A shared observation shape does not make two process models equivalent.</p>
+<p>This catalogue covers seven environment interfaces, including the optional
+Mirage development integration. The available registry entries depend on the
+checkout; older source trees can retain additional historical prototypes.
+Select the process, controlled quantities and required physics first, then choose
+a compatible trainer. A shared observation shape does not make two process models
+equivalent.</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -376,7 +379,7 @@ trainer. A shared observation shape does not make two process models equivalent.
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mirage/sla-v0</span></code></p></td>
 <td><p>Single-layer photopolymerisation and oxygen diffusion</p></td>
 <td><p>Continuous laser power on a fixed raster</p></td>
-<td><p>Experimental resin-curing control; JAX physics and SB3</p></td>
+<td><p>Optional development integration; requires its source/controls, JAX physics and SB3</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lite/fff</span></code></p></td>
 <td><p>Frozen V0 geometric filling</p></td>
@@ -429,13 +432,15 @@ its page records the model limits, metrics and data splits.</p>
 ctrlp<span class="w"> </span>experiments/lite/pbf-v2/runs/thermo_small/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
 ctrlp<span class="w"> </span>experiments/dawn/pbf/runs/thermo_small/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
 ctrlp<span class="w"> </span>experiments/graph/pbf-v0/runs/default/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
-ctrlp<span class="w"> </span>experiments/mirage/sla-v0/runs/original/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
 </pre></div>
 </div>
 <p>Resolution checks source inputs without starting physics or training. Use
 <code class="docutils literal notranslate"><span class="pre">--mode</span> <span class="pre">check</span></code> once the selected environment’s dependencies are available.
 Training/evaluation examples describe executable operations; cluster execution
 continues to use an approved study plan.</p>
+<p>The <a class="reference internal" href="mirage-sla-v0.html"><span class="std std-doc">Mirage examples</span></a> additionally require that integration’s
+source and authored controls. A documentation-only checkout reports these
+examples as unavailable; they are not counted as resolved core examples.</p>
 </section>
 <section id="gymnasium-examples">
 <h2>Gymnasium examples<a class="headerlink" href="#gymnasium-examples" title="Link to this heading">¶</a></h2>
@@ -475,7 +480,7 @@ with a different engine.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source 8cb9527b
+  · source a5bc564d
 </p>
 
 

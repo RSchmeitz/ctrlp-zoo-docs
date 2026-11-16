@@ -343,8 +343,8 @@
 <p>This page covers the <strong>development integration</strong>. Use a checkout containing
 <code class="docutils literal notranslate"><span class="pre">src/ctrlp/environments/mirage/</span></code> and the authored <code class="docutils literal notranslate"><span class="pre">experiments/mirage/</span></code> controls.
 Older source mirrors and the frozen Paper 1 snapshot do not provide this
-environment. The documentation build identity records the reviewed development
-source; the integration is not a validated printer model.</p>
+environment. These examples require the optional integration and are reported
+separately by the documentation checker when its source is unavailable.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mirage/sla-v0</span></code> is a continuous-power, single-layer laser resin-curing
 environment, ported from Mirage-Optics/mirage-sla-rl at
 <code class="docutils literal notranslate"><span class="pre">7aad5c014e8d72295344a404b528832dfe862eec</span></code>.</p>
@@ -454,34 +454,6 @@ Both arms write per-case IoU, missed target area, outside cure divided by target
 area, energy and return. Report random-instance and shape-family results
 separately and compare matched case IDs rather than reward alone.</p>
 </section>
-<section id="small-intensity-corrections">
-<h2>Small intensity corrections<a class="headerlink" href="#small-intensity-corrections" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">shape_residual</span></code> task starts from the calibrated target-following 30 mW
-rule. Its action is <code class="docutils literal notranslate"><span class="pre">Box(-1,</span> <span class="pre">1,</span> <span class="pre">(1,))</span></code>: inside the target, power is
-<code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">*</span> <span class="pre">action</span></code> mW; outside it, power is zero. The range is therefore
-25–35 mW on target. The fixed raster and physical transition are unchanged.
-This is an explicit controller constraint, not an extra reward or a speed change.
-Absolute-power original/v4/shape_accuracy profiles remain available.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ZeroMeanMlpPolicy</span></code> is the standard SB3 actor–critic with only the action head
-initialized to zero. Before learning, deterministic prediction exactly
-reproduces the 30 mW rule. Hidden layers, critic, log standard deviation and
-network size retain the standard initialization. Stochastic training explores
-small bounded corrections. Saved learned action weights are restored on load.</p>
-<p>The residual pilot uses the same reward, observations, shape sequence, bank,
-PPO settings, seeds and 999424-transition budget as the absolute-power pilot.
-Initial and final models are retained; only final models enter the comparison.
-The already inspected test bank supports an exploratory matched comparison,
-not a new independent test claim.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>.venv-wsl/bin/python<span class="w"> </span>ctrlp.py<span class="w"> </span>experiments/mirage/sla-v0/runs/shape_residual/ppo/pilot/run.yml<span class="w"> </span>--mode<span class="w"> </span>train
-<span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>.venv-wsl/bin/python<span class="w"> </span>ctrlp.py<span class="w"> </span>experiments/mirage/sla-v0/runs/shape_residual/ppo/pilot/run.yml<span class="w"> </span>--mode<span class="w"> </span><span class="nb">eval</span>
-</pre></div>
-</div>
-<p>The numerical kernel’s <code class="docutils literal notranslate"><span class="pre">transition</span></code> still accepts absolute normalized power,
-so fixed-power calibration retains its original meaning. Gym, batched training
-and policy evaluation share <code class="docutils literal notranslate"><span class="pre">control_transition</span></code>, which applies the residual
-mapping before the same physical kernel. Reported power and energy are applied
-physical quantities, not the residual action.</p>
-</section>
 <section id="verification">
 <h2>Verification<a class="headerlink" href="#verification" title="Link to this heading">¶</a></h2>
 <p>Owner tests cover Gym, numerical safety, seeds, vector lifecycle and headless
@@ -546,7 +518,7 @@ they do not establish learned-policy benefit or physical print performance.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source 8cb9527b
+  · source a5bc564d
 </p>
 
 
@@ -568,7 +540,6 @@ they do not establish learned-policy benefit or physical print performance.</p>
 <li><a class="reference internal" href="#task-and-interfaces">Task and interfaces</a></li>
 <li><a class="reference internal" href="#run-through-zoo">Run through Zoo</a></li>
 <li><a class="reference internal" href="#shape-accuracy-pilot">Shape accuracy pilot</a></li>
-<li><a class="reference internal" href="#small-intensity-corrections">Small intensity corrections</a></li>
 <li><a class="reference internal" href="#verification">Verification</a></li>
 </ul>
 </li>

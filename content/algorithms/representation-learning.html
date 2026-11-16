@@ -396,8 +396,12 @@ contract. It is not a general encoder-fitting API for every environment.</p>
 ctrlp<span class="w"> </span>experiments/lite/pbf-v2/runs/thermo_large/ppo/representation-ae-bc/run.yml<span class="w"> </span>--mode<span class="w"> </span>resolve
 </pre></div>
 </div>
-<p>These controls resolve without the research data, but <strong>training requires the
-matching host-local cache and qualified inputs</strong>. They carry fixed dataset/cache
+<p>These controls require the owning study’s reward preset at
+<code class="docutils literal notranslate"><span class="pre">experiments/lite/pbf-v2/presets/reward/thermo_large/zigzag-paper1.yml</span></code> even for
+resolution. That research preset is not shipped in a clean checkout. The
+documentation checker reports the examples as unavailable until it is staged;
+it does not count them as passed. <strong>Training additionally requires the matching
+host-local cache and qualified inputs</strong>. The controls carry fixed dataset/cache
 hashes and research budgets; they are not first-run smoke examples. Use a new run
 identity for a different corpus or experiment. Execute data preparation and
 training only within the approved study workflow when remote resources are used.</p>
@@ -498,7 +502,7 @@ package. Continue with <a class="reference internal" href="../daph.html"><span c
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source 8cb9527b
+  · source a5bc564d
 </p>
 
 

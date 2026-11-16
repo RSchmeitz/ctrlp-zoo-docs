@@ -575,16 +575,16 @@
 </pre></div>
 </div>
 <p>Typical validation flow:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>experiments/lite/pbf/runs/thermo_small/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span>check
-ctrlp<span class="w"> </span>experiments/lite/pbf/runs/thermo_small/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span>train<span class="w"> </span>--envs<span class="w"> </span><span class="m">1</span>
-ctrlp<span class="w"> </span>experiments/lite/pbf/runs/thermo_small/ppo/default/run.yml<span class="w"> </span>--mode<span class="w"> </span><span class="nb">eval</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctrlp<span class="w"> </span>experiments/lite/pbf/runs/thermo_small/ppo/paper1/run.yml<span class="w"> </span>--mode<span class="w"> </span>check
+ctrlp<span class="w"> </span>experiments/lite/pbf/runs/thermo_small/ppo/paper1/run.yml<span class="w"> </span>--mode<span class="w"> </span>train<span class="w"> </span>--envs<span class="w"> </span><span class="m">1</span>
+ctrlp<span class="w"> </span>experiments/lite/pbf/runs/thermo_small/ppo/paper1/run.yml<span class="w"> </span>--mode<span class="w"> </span><span class="nb">eval</span>
 </pre></div>
 </div>
-<p>This legacy example uses the shipped default control, not a bounded training
+<p>This legacy example uses the shipped Paper 1 control, not a bounded training
 smoke. Inspect its training budget before running <code class="docutils literal notranslate"><span class="pre">train</span></code>. Its source files are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/lite/pbf/presets/tasks/thermo_small.yml</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">experiments/lite/pbf/runs/thermo_small/ppo/default/run.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">experiments/lite/pbf/runs/thermo_small/ppo/paper1/run.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">experiments/lite/pbf/presets/algo/ppo/base.yml</span></code></p></li>
 </ul>
 </section>
@@ -645,7 +645,7 @@ smoke. Inspect its training budget before running <code class="docutils literal 
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source 8cb9527b
+  · source a5bc564d
 </p>
 
 

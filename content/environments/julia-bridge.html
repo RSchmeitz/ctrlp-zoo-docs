@@ -352,6 +352,17 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"from j
 </div>
 <p>The first import downloads Julia into <code class="docutils literal notranslate"><span class="pre">~/.julia</span></code> when none is found.</p>
 </section>
+<section id="run-the-demo">
+<h2>Run the demo<a class="headerlink" href="#run-the-demo" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">julia/demo-v0</span></code> wraps <code class="docutils literal notranslate"><span class="pre">src/ctrlp/environments/julia/assets/grid.jl</span></code>, a small
+version of Lite PBF: a heat source moves over a 2D grid (<code class="docutils literal notranslate"><span class="pre">L,</span> <span class="pre">R,</span> <span class="pre">U,</span> <span class="pre">D,</span> <span class="pre">TOGGLE</span></code>)
+and must melt every interior cell; the boundary ring is not part of the goal (no ProcGen yet). Observations are the Lite channels
+<code class="docutils literal notranslate"><span class="pre">[phase,</span> <span class="pre">load,</span> <span class="pre">mask,</span> <span class="pre">temp]</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>python<span class="w"> </span>ctrlp.py<span class="w"> </span>experiments/julia/demo-v0/runs/default/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>check
+<span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>python<span class="w"> </span>ctrlp.py<span class="w"> </span>experiments/julia/demo-v0/runs/default/ppo/smoke/run.yml<span class="w"> </span>--mode<span class="w"> </span>train
+</pre></div>
+</div>
+</section>
 <section id="graph-environments">
 <h2>Graph environments<a class="headerlink" href="#graph-environments" title="Link to this heading">¶</a></h2>
 <p>The ConcretePDEGraphs heat model runs on this bridge as its own family,
@@ -381,7 +392,7 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"from j
 <td><p><code class="docutils literal notranslate"><span class="pre">(obs,</span> <span class="pre">reward,</span> <span class="pre">terminated,</span> <span class="pre">truncated)</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">render(env)</span></code> (optional)</p></td>
-<td><p>a grid frame (<code class="docutils literal notranslate"><span class="pre">origin</span></code>, <code class="docutils literal notranslate"><span class="pre">spacing</span></code>, <code class="docutils literal notranslate"><span class="pre">fields</span></code>, <code class="docutils literal notranslate"><span class="pre">source</span></code>) for the Lite V2 viewer; see <code class="docutils literal notranslate"><span class="pre">graph/render.py</span></code></p></td>
+<td><p>a grid frame (<code class="docutils literal notranslate"><span class="pre">origin</span></code>, <code class="docutils literal notranslate"><span class="pre">spacing</span></code>, <code class="docutils literal notranslate"><span class="pre">fields</span></code>, <code class="docutils literal notranslate"><span class="pre">source</span></code>) for the Lite V2 viewer; see <code class="docutils literal notranslate"><span class="pre">julia/render.py</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -447,7 +458,7 @@ Julia runtime per worker.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source 8cb9527b
+  · source a5bc564d
 </p>
 
 
@@ -467,6 +478,7 @@ Julia runtime per worker.</p>
             <ul>
 <li><a class="reference internal" href="#">Julia Bridge</a><ul>
 <li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#run-the-demo">Run the demo</a></li>
 <li><a class="reference internal" href="#graph-environments">Graph environments</a></li>
 <li><a class="reference internal" href="#connect-your-own-environment">Connect your own environment</a></li>
 </ul>
