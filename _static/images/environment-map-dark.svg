@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" role="img" aria-labelledby="title description">
+<title id="title">environment map</title>
+<desc id="description">FFF: Lite FFF V2 and Dawn. PBF: Lite PBF V2, Graph and Dawn. Resin: Mirage. Lite V0 interfaces remain available for historical replay.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#72d9c1" stroke-width="1.6"/></marker></defs>
+<rect width="600" height="300" rx="18" fill="#14111d"/>
+<path transform="translate(110 60)" d="M-25 19 H25 M-19 9 H19 M-12 -1 H12 M0 -27 V-8 M-6 -14 L0 -8 L6 -14" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="110" y="117" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="500" fill="#f3edf8">FFF</text>
+<text x="110" y="165" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="500" fill="#b9b1c5">Lite V2</text>
+<text x="110" y="195" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="500" fill="#b9b1c5">Dawn</text>
+<path transform="translate(300 60)" d="M-20 22 Q-30 10 -20 -2 Q-10 -14 -20 -24 M0 22 Q-10 10 0 -2 Q10 -14 0 -24 M20 22 Q10 10 20 -2 Q30 -14 20 -24" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="300" y="117" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="500" fill="#f3edf8">PBF</text>
+<text x="300" y="165" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="500" fill="#b9b1c5">Lite V2</text>
+<text x="300" y="195" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="500" fill="#b9b1c5">Graph · Dawn</text>
+<path transform="translate(490 60)" d="M0 -26 Q-10 -9 -18 2 C-35 35 35 35 18 2 Q10 -9 0 -26" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="490" y="117" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="500" fill="#f3edf8">Resin</text>
+<text x="490" y="165" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="500" fill="#b9b1c5">Mirage</text>
+<text x="300" y="265" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="500" fill="#b9b1c5">V0: historical replay</text>
+</svg>

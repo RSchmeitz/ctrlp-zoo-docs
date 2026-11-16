@@ -1,34 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="580" viewBox="0 0 1240 580" role="img" aria-label="RL in additive manufacturing control loop">
-  <defs>
-    <linearGradient id="am-bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#09080d"/>
-      <stop offset="100%" stop-color="#15111d"/>
-    </linearGradient>
-    <marker id="am-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
-    </marker>
-  </defs>
-  <rect width="1240" height="580" rx="28" fill="url(#am-bg)"/>
-  <text x="80" y="56" font-family="DejaVu Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#f0d17a">RL for additive manufacturing</text>
-  <rect x="110" y="110" width="1020" height="370" rx="28" fill="#121019" stroke="#2b2438" stroke-width="2"/>
-  <rect x="150" y="180" width="250" height="170" rx="24" fill="#171320" stroke="#4b3b61" stroke-width="2"/>
-  <rect x="495" y="180" width="250" height="170" rx="24" fill="#121a19" stroke="#2f7164" stroke-width="2"/>
-  <rect x="840" y="180" width="250" height="170" rx="24" fill="#1a1610" stroke="#8f6b32" stroke-width="2"/>
-  <text x="190" y="228" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#f0e4fb">Process state</text>
-  <text x="190" y="262" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#d1c7da">thermal field</text>
-  <text x="190" y="287" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#d1c7da">geometry</text>
-  <text x="190" y="312" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#d1c7da">local history</text>
-  <text x="535" y="228" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#ddfbf3">Control action</text>
-  <text x="535" y="262" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#c1e7df">path choice</text>
-  <text x="535" y="287" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#c1e7df">speed or power</text>
-  <text x="535" y="312" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#c1e7df">material deposition</text>
-  <text x="880" y="228" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#fff3cc">Objective</text>
-  <text x="880" y="262" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#e3d2b2">quality</text>
-  <text x="880" y="287" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#e3d2b2">time</text>
-  <text x="880" y="312" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#e3d2b2">stability</text>
-  <path d="M400 262 L495 262" stroke="#2f7164" stroke-width="4.5" fill="none" marker-end="url(#am-arrow)"/>
-  <path d="M745 262 L840 262" stroke="#8f6b32" stroke-width="4.5" fill="none" marker-end="url(#am-arrow)"/>
-  <path d="M950 384 C 780 448, 440 448, 280 370" stroke="#7a43a8" stroke-width="4" fill="none" marker-end="url(#am-arrow)"/>
-  <text x="620" y="430" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#b8b1c1">Delayed effects make AM a strong candidate</text>
-  <text x="620" y="454" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" fill="#b8b1c1">for RL-style sequential decision making.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" role="img" aria-labelledby="title description">
+<title id="title">rl am control</title>
+<desc id="description">Process observations guide control actions, which change the physical process. Objectives define the desired outcome.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#72d9c1" stroke-width="1.6"/></marker></defs>
+<rect width="600" height="300" rx="18" fill="#14111d"/>
+<path transform="translate(125 115)" d="M-22 19 L0 -20 L22 19 Z M0 -20 V19 M-22 19 L12 2 M22 19 L-12 2" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="125" y="179" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="500" fill="#f3edf8">Policy</text>
+<path transform="translate(475 115)" d="M-20 22 Q-30 10 -20 -2 Q-10 -14 -20 -24 M0 22 Q-10 10 0 -2 Q10 -14 0 -24 M20 22 Q10 10 20 -2 Q30 -14 20 -24" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="475" y="179" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="500" fill="#f3edf8">Process</text>
+<path d="M180 90 H420" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="300" y="70" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" font-weight="500" fill="#f3edf8">Control</text>
+<path d="M420 140 H180" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="300" y="225" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" font-weight="500" fill="#f3edf8">Observe</text>
+<text x="300" y="275" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="500" fill="#b9b1c5">Quality · speed · stability</text>
 </svg>

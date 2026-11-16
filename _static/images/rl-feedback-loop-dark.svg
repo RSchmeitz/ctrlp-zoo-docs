@@ -1,33 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-label="Reinforcement learning feedback loop">
-  <defs>
-    <linearGradient id="rl-bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#09080d"/>
-      <stop offset="100%" stop-color="#15111d"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000000" flood-opacity="0.32"/>
-    </filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
-    </marker>
-  </defs>
-  <rect width="1200" height="500" rx="28" fill="url(#rl-bg)"/>
-  <rect x="80" y="80" width="1040" height="340" rx="28" fill="#121019" stroke="#2b2438" stroke-width="2"/>
-  <rect x="130" y="150" width="300" height="190" rx="26" fill="#171320" stroke="#4b3b61" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="770" y="150" width="300" height="190" rx="26" fill="#121a19" stroke="#2f7164" stroke-width="2" filter="url(#shadow)"/>
-  <text x="180" y="205" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#f0e4fb">Agent</text>
-  <text x="180" y="245" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" fill="#d1c7da">policy</text>
-  <text x="180" y="272" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" fill="#d1c7da">value estimates</text>
-  <text x="180" y="299" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" fill="#d1c7da">learning update</text>
-  <text x="820" y="205" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#ddfbf3">Environment</text>
-  <text x="820" y="245" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" fill="#c1e7df">state transition</text>
-  <text x="820" y="272" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" fill="#c1e7df">reward signal</text>
-  <text x="820" y="299" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" fill="#c1e7df">termination logic</text>
-  <path d="M430 215 L770 215" stroke="#2f7164" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
-  <path d="M770 285 L430 285" stroke="#a978d6" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
-  <rect x="535" y="180" width="132" height="38" rx="19" fill="#102823" stroke="#2f7164" stroke-width="1.5"/>
-  <text x="601" y="205" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#7de5cf">action</text>
-  <rect x="504" y="296" width="194" height="38" rx="19" fill="#251c33" stroke="#4b3b61" stroke-width="1.5"/>
-  <text x="601" y="321" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#cfa6f1">observation + reward</text>
-  <text x="80" y="48" font-family="DejaVu Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#f0e4fb">Reinforcement learning loop</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" role="img" aria-labelledby="title description">
+<title id="title">rl feedback loop</title>
+<desc id="description">The agent sends actions to the environment and receives observations and rewards.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#72d9c1" stroke-width="1.6"/></marker></defs>
+<rect width="600" height="300" rx="18" fill="#14111d"/>
+<path transform="translate(125 125)" d="M-22 19 L0 -20 L22 19 Z M0 -20 V19 M-22 19 L12 2 M22 19 L-12 2" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="125" y="189" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="500" fill="#f3edf8">Agent</text>
+<path transform="translate(475 125)" d="M-22 -22 H22 V22 H-22 Z M-7 -22 V22 M7 -22 V22 M-22 -7 H22 M-22 7 H22" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="475" y="189" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="500" fill="#f3edf8">Environment</text>
+<path d="M180 105 H420" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="300" y="87" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="500" fill="#f3edf8">Action</text>
+<path d="M420 150 H180" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="300" y="245" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" font-weight="500" fill="#f3edf8">Observation + reward</text>
 </svg>

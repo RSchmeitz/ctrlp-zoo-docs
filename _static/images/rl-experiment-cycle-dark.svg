@@ -1,40 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="RL experiment cycle">
-  <defs>
-    <linearGradient id="exp-bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#09080d"/>
-      <stop offset="100%" stop-color="#15111d"/>
-    </linearGradient>
-    <marker id="exp-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
-    </marker>
-  </defs>
-  <rect width="1200" height="560" rx="28" fill="url(#exp-bg)"/>
-  <text x="80" y="58" font-family="DejaVu Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#f0e4fb">Experiment design cycle</text>
-  <rect x="92" y="105" width="1016" height="380" rx="28" fill="#121019" stroke="#2b2438" stroke-width="2"/>
-  <circle cx="220" cy="290" r="72" fill="#171320" stroke="#4b3b61" stroke-width="2"/>
-  <circle cx="430" cy="290" r="72" fill="#17151b" stroke="#615768" stroke-width="2"/>
-  <circle cx="640" cy="290" r="72" fill="#121a19" stroke="#2f7164" stroke-width="2"/>
-  <circle cx="850" cy="290" r="72" fill="#1a1610" stroke="#8f6b32" stroke-width="2"/>
-  <circle cx="1060" cy="290" r="72" fill="#171320" stroke="#4b3b61" stroke-width="2"/>
-  <text x="220" y="276" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="23" font-weight="700" fill="#f0e4fb">Input</text>
-  <text x="220" y="304" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#d1c7da">config/&lt;algo&gt;/&lt;run&gt;.yml</text>
-  <text x="220" y="326" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#d1c7da">define task</text>
-  <text x="430" y="283" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="23" font-weight="700" fill="#f5f1f8">Resolve</text>
-  <text x="430" y="308" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#cfc8d6">inspect merged</text>
-  <text x="430" y="328" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#cfc8d6">setup</text>
-  <text x="640" y="283" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="23" font-weight="700" fill="#ddfbf3">Train</text>
-  <text x="640" y="308" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#c1e7df">generate</text>
-  <text x="640" y="328" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#c1e7df">checkpoints</text>
-  <text x="850" y="283" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="23" font-weight="700" fill="#fff3cc">Evaluate</text>
-  <text x="850" y="313" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" fill="#e3d2b2">measure behavior</text>
-  <text x="1060" y="276" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="23" font-weight="700" fill="#f0e4fb">Review</text>
-  <text x="1060" y="304" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#d1c7da">compare seeds</text>
-  <text x="1060" y="326" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" fill="#d1c7da">check artifacts</text>
-  <path d="M292 290 L358 290" stroke="#a978d6" stroke-width="4" fill="none" marker-end="url(#exp-arrow)"/>
-  <path d="M502 290 L568 290" stroke="#615768" stroke-width="4" fill="none" marker-end="url(#exp-arrow)"/>
-  <path d="M712 290 L778 290" stroke="#2f7164" stroke-width="4" fill="none" marker-end="url(#exp-arrow)"/>
-  <path d="M922 290 L988 290" stroke="#8f6b32" stroke-width="4" fill="none" marker-end="url(#exp-arrow)"/>
-  <path d="M1060 218 C 1125 150, 1145 120, 990 120 L 305 120 C 175 120, 145 155, 160 224" stroke="#7d6a92" stroke-width="3.5" fill="none" stroke-dasharray="10 10" marker-end="url(#exp-arrow)"/>
-  <text x="600" y="146" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#b8b1c1">A good experiment loops back into the next</text>
-  <text x="600" y="168" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" fill="#b8b1c1">configuration decision.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" role="img" aria-labelledby="title description">
+<title id="title">rl experiment cycle</title>
+<desc id="description">Configure, resolve and check, train, then evaluate. Review the evidence before revising the configuration.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#72d9c1" stroke-width="1.6"/></marker></defs>
+<rect width="600" height="300" rx="18" fill="#14111d"/>
+<path transform="translate(75 105)" d="M-16 -23 H7 L18 -12 V23 H-16 Z M6 -23 V-11 H18 M-7 0 H9 M-7 9 H9" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="167" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="500" fill="#f3edf8">Configure</text>
+<path transform="translate(225 105)" d="M-20 0 L-5 15 L23 -18" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="225" y="167" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="500" fill="#f3edf8">Check</text>
+<path transform="translate(375 105)" d="M-22 19 L0 -20 L22 19 Z M0 -20 V19 M-22 19 L12 2 M22 19 L-12 2" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="375" y="167" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="500" fill="#f3edf8">Train</text>
+<path transform="translate(525 105)" d="M-23 -22 V23 H24 M-15 12 L-3 -2 L8 4 L22 -17" fill="none" stroke="#bca0e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="525" y="167" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="500" fill="#f3edf8">Evaluate</text>
+<path d="M115 105 h65" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M265 105 h65" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M415 105 h65" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M525 193 V235 H75 V193" fill="none" stroke="#72d9c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="5 7"/>
+<text x="300" y="270" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="500" fill="#b9b1c5">Review &amp; refine</text>
 </svg>
