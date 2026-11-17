@@ -409,7 +409,7 @@ settings without source-power overrides. The combined study retains its
 explicit 20 × 20 mesh override on the Medium task.</p>
 <p>The original <code class="docutils literal notranslate"><span class="pre">thermo_small</span></code>, <code class="docutils literal notranslate"><span class="pre">thermo_medium</span></code>, and <code class="docutils literal notranslate"><span class="pre">thermo_large</span></code> presets
 retain their historical meaning. In particular, the original
-<code class="docutils literal notranslate"><span class="pre">learnable-grid-20x20-s0</span></code> and <code class="docutils literal notranslate"><span class="pre">response-match-40x40</span></code> controls still fix power at
+locally retained <code class="docutils literal notranslate"><span class="pre">learnable-grid-20x20-s0</span></code> and <code class="docutils literal notranslate"><span class="pre">response-match-40x40</span></code> study controls fix power at
 20 W. Use the corresponding control with the <code class="docutils literal notranslate"><span class="pre">-source-control</span></code> run suffix for
 new learned-power experiments. It selects <code class="docutils literal notranslate"><span class="pre">presets.task:</span> <span class="pre">thermo_medium_source_control</span></code> (or <code class="docutils literal notranslate"><span class="pre">thermo_small_source_control</span></code>) while retaining
 the original <code class="docutils literal notranslate"><span class="pre">select.task</span></code> and benchmark identity. The optional <code class="docutils literal notranslate"><span class="pre">presets.task</span></code>
@@ -846,7 +846,7 @@ factorization required to reach an endpoint exactly.</p>
 <p class="build-identity">
   Development documentation ·
   <a href="../../build-info.json">Build identity</a>
-  · source 046a8e3c
+  · source 2509f6d7
 </p>
 
 
